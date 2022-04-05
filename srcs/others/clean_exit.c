@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2021/04/30 08:34:10 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:13:03 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,24 @@ void	quit(t_arg *data, char *str_err, int i, int place)
 	free(data->sprite);
 	free_str(data->fd);
 	free_str(data->map);
+	free(data);
+	if (s()->cls != NULL)
+		free(s()->cls);
+	// exit (0);
+}
+
+void	quit_properly_image(t_mlx *img)
+{
+	if (img)
+	{
+		if (img->img)
+			mlx_destroy_image(img->mlx, img->img);
+		if (img->win)
+			mlx_destroy_window(img->mlx, img->win);
+		mlx_destroy_display(img->mlx);
+		free(img->mlx);
+	}
+	free(s()->img);
+	free(s());
 	exit (0);
 }

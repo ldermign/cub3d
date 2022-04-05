@@ -6,13 +6,13 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 11:49:37 by ldermign          #+#    #+#             */
-/*   Updated: 2021/04/25 11:43:20 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:15:56 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft__save(char *arg)
+int	ft_save(char *arg)
 {
 	char	*ag_save;
 	int		len;
@@ -56,7 +56,7 @@ void	ft_check_arg(int ac, char **ag)
 	{
 		if (ft_check_name_map(ag[1]) == 1)
 			exit (0);
-		if (ac == 3 && (ft__save(ag[2]) == 1))
+		if (ac == 3 && (ft_save(ag[2]) == 1))
 			exit (0);
 	}
 	else
