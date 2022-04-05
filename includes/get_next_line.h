@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 21:00:58 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 14:03:55 by ldermign         ###   ########.fr       */
+/*   Created: 2020/12/08 15:24:48 by ldermign          #+#    #+#             */
+/*   Updated: 2021/05/31 13:54:49 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_strdup(char *str)
-{
-	int		i;
-	int		len;
-	char	*dst;
+# include "libft.h"
+# define BUFFER_SIZE 42
 
-	i = 0;
-	len = 0;
-	while (str[len])
-		len++;
-	dst = (char *)malloc(sizeof(*dst) * (len + 1));
-	if (dst == NULL)
-		return (NULL);
-	while (i < len)
-	{
-		dst[i] = str[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
+int		get_next_line(int fd, char **line);
+int		ft_free_reader(char *reader);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strdup_gnl(char *src);
+
+#endif

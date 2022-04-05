@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:40:28 by ldermign          #+#    #+#             */
-/*   Updated: 2021/08/12 17:52:38 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:21:08 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdarg.h>
 # include <fcntl.h>
 # include <math.h>
+# include <stdio.h>
+# include "mlx.h"
 # include "libft.h"
 # include "ft_printf.h"
 # include "get_next_line.h"
@@ -98,27 +100,19 @@ void	get_resolution(t_arg *data, char *str);
 **	RAYCASTING
 */
 
-int	all_calculs_cub(t_mlx *img, t_calc *cls, t_arg *data);
+
 
 /*
 **	R CALCULS
 */
 
-int		key_press(int keycode);
-void	step_calculs(t_calc *clc);
-void	which_square_with_wall_DDA(t_calc *clcls, t_arg *data);
-void	distance_camera_calculs(t_mlx *img, t_calc *clcls);
-int		move_player(int keycode, t_calc *cls, t_arg *data);
+
 
 /*
 **  R UTILS
 */
 
-void	get_orientation_player(t_calc *clcls, t_arg *data);
-void	get_pars(t_arg *data, t_mlx *img, t_calc *clcls);
-void	init_calculs(t_mlx *img, t_calc *clcls, int i);
-void	fill_sky_and_floor(t_mlx *img);
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+
 
 /*
 **	UTILS
@@ -198,8 +192,6 @@ void	quit(t_arg *data, char *str_err, int i, int place);
 #define KGRE  "\x1b[1;30m" // GRIS
 #define CLR_COLOR "\x1b[0m" // CLEAR COLOR
 void	printf_struct_arg(t_arg data);
-
-# include <libc.h>
 
 #endif
 
