@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/05 19:13:30 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/05 21:39:44 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	test(t_cub *cub)
 {
 	init_background(cub, cub->c, cub->f, cub->x, cub->y);
 	raycast1(cub);
-	// if (cub->mini == 1)
-	// 	minimap1(cub);
+	if (cub->mini == 1)
+		minimap1(cub);
 	mlx_put_image_to_window(cub->mlx, cub->mlx_ptr, cub->img, 0, 0);
 }
 
@@ -29,9 +29,9 @@ int		key_press(int key_code, t_cub *cub)
 	double	d;
 
 	// printf("pressed => %d\n", key_code);
-	if (key_code == 53)
+	if (key_code == 65307)
 		ft_quit(cub);
-	if (key_code == 46)
+	if (key_code == 109)
 	{
 		if (cub->mini == 1)
 			cub->mini = 0;
@@ -39,7 +39,7 @@ int		key_press(int key_code, t_cub *cub)
 			cub->mini = 1;
 		test(cub);
 	}
-	if (key_code == 0) // a
+	if (key_code == 97) // a
 	{
 		a = acos(cub->dirX);
 		if (cub->dirY < 0)
@@ -56,7 +56,7 @@ int		key_press(int key_code, t_cub *cub)
 		// 	cub->posY += cub->dirY * 0.2;
 		test(cub);
 	}
-	if (key_code == 1) // s
+	if (key_code == 115) // s
 	{
 		if(cub->map[(int)(cub->posX - cub->dirX * 0.2)][(int)(cub->posY)] != '1')
 			cub->posX -= cub->dirX * 0.2;
@@ -64,7 +64,7 @@ int		key_press(int key_code, t_cub *cub)
 			cub->posY -= cub->dirY * 0.2;
 		test(cub);
 	}
-	if (key_code == 2) // d
+	if (key_code == 100) // d
 	{
 		a = acos(cub->dirX);
 		if (cub->dirY < 0)
@@ -81,7 +81,7 @@ int		key_press(int key_code, t_cub *cub)
 			// cub->posY += cub->dirY * 0.2;
 		test(cub);
 	}
-	if (key_code == 13) // w
+	if (key_code == 119) // w
 	{
 		if (cub->map[(int)(cub->posX + cub->dirX * 0.2)][(int)(cub->posY)] != '1')
 			cub->posX += cub->dirX * 0.2;
@@ -89,7 +89,7 @@ int		key_press(int key_code, t_cub *cub)
 			cub->posY += cub->dirY * 0.2;
 		test(cub);
 	}
-	if (key_code == 123) // <-
+	if (key_code == KL_LEFT) // <-
 	{
 		cub->oldDirX = cub->dirX;
 		cub->dirX = cub->dirX * cos(0.1) - cub->dirY * sin(0.1);
@@ -101,7 +101,7 @@ int		key_press(int key_code, t_cub *cub)
 		// printf("dirX : %f\n", cub->dirX);
 		test(cub);
 	}
-	if (key_code == 124) // ->
+	if (key_code == KL_RIGHT) // ->
 	{
 		cub->oldDirX = cub->dirX;
 		cub->dirX = cub->dirX * cos(-0.1) - cub->dirY * sin(-0.1);
@@ -131,7 +131,7 @@ int		ft_quit(t_cub *cub)
 	mlx_destroy_window(cub->mlx, cub->mlx_ptr);
 	free(cub->mlx);
 	// free_map(cub);
-	system("leaks cub3D");
+	// system("leaks cub3D");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

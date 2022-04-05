@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 19:19:15 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/05 21:47:45 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,28 +106,14 @@ t_s	*s(void)
 	return (stc);
 }
 
-	// printf("\n\033[1;32m-> OK  🐸\033[0m\n\n");
-	// printf("\n\033[1;33mINFOS : \033[0m\n\n");
-	// printf("\033[1;34mx	\033[0m -> %d\n", cub.x);
-	// printf("\033[1;34my	\033[0m -> %d\n", cub.y);
-	// printf("\033[1;34mf	\033[0m -> %d\n", cub.f);
-	// printf("\033[1;34mc	\033[0m -> %d\n", cub.c);
-	// printf("\033[1;34mEAST	\033[0m -> %s\n", cub.east);
-	// printf("\033[1;34mWEST	\033[0m -> %s\n", cub.west);
-	// printf("\033[1;34mSOUTH	\033[0m -> %s\n", cub.south);
-	// printf("\033[1;34mNORTH	\033[0m -> %s\n", cub.north);
-	// printf("\033[1;34mSPRITE	\033[0m -> %s\n", cub.sprite);
-	// printf("\033[1;34mPLAYER	\033[0m -> %c\n", cub.player);
-	// printf("\n\033[1;33mMAP : \033[0m\n\n");
-
 void	recup_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 {
 	cub->bits_per_pixel = img->bpp;
 	cub->line_length = img->size_line;
 	cub->endian = img->endian;
 	printf("ciel = %d, %d, %d\n", arg->ciel_r, arg->ciel_g, arg->ciel_b);
-	cub->c = create_trgb(arg->ciel_r, arg->ciel_g, arg->ciel_b, 12);
-	cub->f = create_trgb(arg->flr_r, arg->flr_g, arg->flr_b, 12);
+	cub->c = create_trgb(arg->ciel_r, arg->ciel_g, arg->ciel_b, 0);
+	cub->f = create_trgb(arg->flr_r, arg->flr_g, arg->flr_b, 0);
 	printf("ciel = %d\n", cub->c);
 	cub->x = arg->res_x;
 	cub->y = arg->res_y;

@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 19:21:16 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/05 21:33:14 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int		ft_loop(t_cub *cub);
 // int		key_press(int key_code, t_cub *cub);
 void	test(t_cub *cub);
 // void	my_mlx_pixel_put(t_img *data, int x, t_cub *cub, int color);
-int		create_trgb(int t, int r, int g, int b);
+// int		create_trgb(int t, int r, int g, int b);
 int		key_press(int key_code, t_cub *cub);
 // void	image(t_img *data, int x, int y);
 int		ft_loop(t_cub *cub);
