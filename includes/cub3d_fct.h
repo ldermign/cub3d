@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 17:20:33 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/05 19:21:16 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
 int		minimap2(t_cub *cub, int k);
 void	recup_textures(t_cub *cub);
 // int	first_calcul(t_cub *cub, t_map *map, t_img *img);
+void	recup_pos(t_cub *cub);
 
 
 

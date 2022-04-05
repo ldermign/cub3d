@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 19:14:05 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/05 19:19:15 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ int		main(int ac, char **ag)
 	// get_orientation_player(s()->cls, s()->data);
 	recup_cub(&cub, s()->img, s()->data);
 	print(cub);
+	recup_pos(&cub);
 	init_raycast(&cub);
 	printf("dirX : %f\ndirY : %f\nplaneX : %f\nplaneY : %f\n", cub.dirX, cub.dirY, cub.planeX, cub.planeY);
 	window(&cub);
