@@ -1,0 +1,112 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/10 16:24:36 by ejahan            #+#    #+#             */
+/*   Updated: 2022/04/05 17:57:37 by ejahan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+void	my_mlx_pixel_put_square(t_cub *cub, int x, int y, int color)
+{
+	char	*dst;
+	int		a;
+	int		b;
+
+	a = 0;
+	b = 0;
+	while (a < cub->a2)
+	{
+		while (b < cub->a2)
+		{
+			dst = cub->addr + ((a + y) * cub->line_length
+					+ (b + x) * (cub->bits_per_pixel / 8));
+			*(unsigned int *)dst = color;
+			b++;
+		}
+		a++;
+		b = 0;
+	}
+}
+
+int	minimap1(t_cub *cub)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	k = 0;
+	j = 0;
+	if (cub->y < 400 && cub->x < 400)
+		return (-1);
+	while (cub->map[i])
+	{
+		while (cub->map[i][j])
+			j++;
+		if (j > k)
+			k = j;
+		j = 0;
+		i++;
+	}
+	if (i > k)
+		k = i;
+	minimap2(cub, k);
+	return (1);
+}
+
+void	norm_minimap(t_cub *cub, int l, int k)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (cub->map[i])
+	{
+		while (cub->map[i][j])
+		{
+			if (cub->map[i][j] == '1')
+				my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + cub->a2
+					* j, (l - cub->a2 * k) / 2 + i * cub->a2,
+					create_trgb(2, 0, 110, 90));
+			else if (cub->map[i][j] == '0')
+				my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + cub->a2
+					* j, (l - cub->a2 * k) / 2 + i * cub->a2,
+					create_trgb(2, 160, 160, 160));
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+}
+
+int	minimap2(t_cub *cub, int k)
+{
+	int	l;
+
+	l = 0;
+	if (cub->x <= cub->y)
+		l = cub->x / 2;
+	else
+		l = cub->y / 2;
+	cub->a2 = l / k;
+	norm_minimap(cub, l, k);
+	my_mlx_pixel_put_square(cub, cub->a2 * cub->posY + (l - cub->a2 * k) / 2
+		+ (cub->a2 * cub->dirY) - cub->a2 / 2,
+		cub->a2 * cub->posX + (l - cub->a2 * k) / 2 + cub->dirX * cub->a2
+		- cub->a2 / 2, create_trgb(2, 160, 200, 200));
+	my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + (cub->a2 * cub->posY)
+		- cub->a2 / 2, (l - cub->a2 * k) / 2 + cub->posX * cub->a2
+		- cub->a2 / 2, create_trgb(2, 65, 65, 65));
+	// my_mlx_pixel_put_square(cub, cub->a2 * cub->posY + (l - cub->a2 * k) / 2
+	// 	+ (cub->a2 * cub->raydirY) - cub->a2 / 2,
+	// 	cub->a2 * cub->posX + (l - cub->a2 * k) / 2 + cub->raydirX * cub->a2
+	// 	- cub->a2 / 2, create_trgb(2, 0, 0, 170));
+	return (1);
+}

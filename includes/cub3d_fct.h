@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 15:15:56 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:20:33 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	free_str(char **tab);
 */
 
 int		create_trgb(int t, int r, int g, int b);
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+// void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
 /*
 **  UTILS MAP
@@ -108,5 +108,46 @@ void	quit_properly_image(t_mlx *img);
 */
 
 void	printf_struct_arg(t_arg data);
+
+
+
+/*
+**  RAYCASTING
+*/
+
+void	print(t_cub cub);
+void	window(t_cub *cub);
+void    init_background(t_cub *cub, int c, int f, int x, int y);
+int		ft_quit(t_cub *cub);
+int		ft_loop(t_cub *cub);
+// int		key_press(int key_code, t_cub *cub);
+void	test(t_cub *cub);
+// void	my_mlx_pixel_put(t_img *data, int x, t_cub *cub, int color);
+int		create_trgb(int t, int r, int g, int b);
+int		key_press(int key_code, t_cub *cub);
+// void	image(t_img *data, int x, int y);
+int		ft_loop(t_cub *cub);
+void	init_background(t_cub *cub, int c, int f, int x, int y);
+// void	square(t_img *data, int color);
+int		get_next_line(int fd, char **line);
+void	window(t_cub *cub);
+// map
+// int	first_calcul(t_cub *cub, t_map *map, t_img *img);
+int		ft_quit(t_cub *cub);
+// void	time(t_cub *cub, t_map *map, t_img *img, int x);
+// void	init_raycasting(t_cub *cub);
+// void	raycast(t_cub *cub, t_map *map, t_img *img);
+// void	recup_angle(t_map *map, t_cub *cub);
+void	init_raycast(t_cub *cub);
+void	raycast1(t_cub *cub);
+int		minimap1(t_cub *cub);
+void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
+int		minimap2(t_cub *cub, int k);
+void	recup_textures(t_cub *cub);
+// int	first_calcul(t_cub *cub, t_map *map, t_img *img);
+
+
+
+
 
 #endif

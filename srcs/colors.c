@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:24:09 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 15:05:21 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:19:39 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	create_trgb(int t, int r, int g, int b)
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = data->addr + (y * data->size_line + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
-}
+// 	dst = data->addr + (y * data->size_line + x * (data->bpp / 8));
+// 	*(unsigned int *)dst = color;
+// }
