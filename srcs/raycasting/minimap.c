@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 16:24:36 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/05 17:57:37 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 21:11:05 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,5 @@ int	minimap2(t_cub *cub, int k)
 	my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + (cub->a2 * cub->posY)
 		- cub->a2 / 2, (l - cub->a2 * k) / 2 + cub->posX * cub->a2
 		- cub->a2 / 2, create_trgb(2, 65, 65, 65));
-	// my_mlx_pixel_put_square(cub, cub->a2 * cub->posY + (l - cub->a2 * k) / 2
-	// 	+ (cub->a2 * cub->raydirY) - cub->a2 / 2,
-	// 	cub->a2 * cub->posX + (l - cub->a2 * k) / 2 + cub->raydirX * cub->a2
-	// 	- cub->a2 / 2, create_trgb(2, 0, 0, 170));
 	return (1);
 }

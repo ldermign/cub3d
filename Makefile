@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/06 20:08:04 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/06 22:41:46 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,12 @@ SRCS	=	./srcs/main.c \
 			./srcs/utils/utils_parsing_map.c \
 			./srcs/others/clean_exit.c \
 			./srcs/supprimer.c \
-			./raycasting/raycasting3.c \
-			./raycasting/merde.c \
-			./raycasting/minimap.c 
+			./srcs/raycasting/raycasting.c \
+			./srcs/raycasting/utils.c \
+			./srcs/raycasting/minimap.c \
+			./srcs/raycasting/init.c \
+			./srcs/raycasting/key_press.c \
+			./srcs/raycasting/key_press2.c 
 
 INCS	=	./includes/
 

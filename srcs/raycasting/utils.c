@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merde.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/06 20:09:06 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 21:12:04 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,99 +19,6 @@ void	test(t_cub *cub)
 	if (cub->mini == 1)
 		minimap1(cub);
 	mlx_put_image_to_window(cub->mlx, cub->mlx_ptr, cub->img, 0, 0);
-}
-
-int	key_press(int key_code, t_cub *cub)
-{
-	double	a;
-	double	b;
-	double	c;
-	double	d;
-
-	// printf("pressed => %d\n", key_code);
-	if (key_code == 65307)
-		ft_quit(cub);
-	if (key_code == 109)
-	{
-		if (cub->mini == 1)
-			cub->mini = 0;
-		else
-			cub->mini = 1;
-		test(cub);
-	}
-	if (key_code == 97) // a
-	{
-		a = acos(cub->dirX);
-		if (cub->dirY < 0)
-			a = -a;
-		b = a - M_PI / 2;
-		c = cos(b);
-		d = sin(b);
-		if (cub->map[(int)(cub->posX - c * 0.2)][(int)(cub->posY - d * 0.2)] != '1')
-		{
-			cub->posX -= c * 0.2;
-			cub->posY -= d * 0.2;
-		}
-		// if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)] != '1')
-		// 	cub->posY += cub->dirY * 0.2;
-		test(cub);
-	}
-	if (key_code == 115) // s
-	{
-		if (cub->map[(int)(cub->posX - cub->dirX * 0.2)][(int)(cub->posY)] != '1')
-			cub->posX -= cub->dirX * 0.2;
-		if (cub->map[(int)(cub->posX)][(int)(cub->posY - cub->dirY * 0.2)] != '1')
-			cub->posY -= cub->dirY * 0.2;
-		test(cub);
-	}
-	if (key_code == 100) // d
-	{
-		a = acos(cub->dirX);
-		if (cub->dirY < 0)
-			a = -a;
-		b = a - M_PI / 2;
-		c = cos(b);
-		d = sin(b);
-		if (cub->map[(int)(cub->posX + c * 0.2)][(int)(cub->posY + d * 0.2)] != '1')
-		{
-			cub->posX += c * 0.2;
-			cub->posY += d * 0.2;
-		}
-		// if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)] != '1')
-			// cub->posY += cub->dirY * 0.2;
-		test(cub);
-	}
-	if (key_code == 119) // w
-	{
-		if (cub->map[(int)(cub->posX + cub->dirX * 0.2)][(int)(cub->posY)] != '1')
-			cub->posX += cub->dirX * 0.2;
-		if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)] != '1')
-			cub->posY += cub->dirY * 0.2;
-		test(cub);
-	}
-	if (key_code == KL_LEFT) // <-
-	{
-		cub->oldDirX = cub->dirX;
-		cub->dirX = cub->dirX * cos(0.1) - cub->dirY * sin(0.1);
-		cub->dirY = cub->oldDirX * sin(0.1) + cub->dirY * cos(0.1);
-		cub->oldPlaneX = cub->planeX;
-		cub->planeX = cub->planeX * cos(0.1) - cub->planeY * sin(0.1);
-		cub->planeY = cub->oldPlaneX * sin(0.1) + cub->planeY * cos(0.1);
-		// printf("dirY : %f\n", cub->dirY);
-		// printf("dirX : %f\n", cub->dirX);
-		test(cub);
-	}
-	if (key_code == KL_RIGHT) // ->
-	{
-		cub->oldDirX = cub->dirX;
-		cub->dirX = cub->dirX * cos(-0.1) - cub->dirY * sin(-0.1);
-		cub->dirY = cub->oldDirX * sin(-0.1) + cub->dirY * cos(-0.1);
-		cub->oldPlaneX = cub->planeX;
-		cub->planeX = cub->planeX * cos(-0.1) - cub->planeY * sin(-0.1);
-		cub->planeY = cub->oldPlaneX * sin(-0.1) + cub->planeY * cos(-0.1);
-		test(cub);
-	}
-	return (0);
 }
 
 int	ft_loop(t_cub *cub)
@@ -181,6 +88,7 @@ void	print(t_cub cub)
 	int	i;
 
 	i = 0;
+	// printf("\n\033[1;32m-> OK  🐸\033[0m\n\n");
 	printf("\n\033[1;32m-> OK  🐸\033[0m\n\n");
 	printf("\n\033[1;33mINFOS : \033[0m\n\n");
 	printf("\033[1;34mx	\033[0m -> %d\n", cub.x);
