@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 21:47:45 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:26:21 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ void	recup_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 	cub->line_length = img->size_line;
 	cub->endian = img->endian;
 	printf("ciel = %d, %d, %d\n", arg->ciel_r, arg->ciel_g, arg->ciel_b);
-	cub->c = create_trgb(arg->ciel_r, arg->ciel_g, arg->ciel_b, 0);
-	cub->f = create_trgb(arg->flr_r, arg->flr_g, arg->flr_b, 0);
+	cub->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
+	cub->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
 	printf("ciel = %d\n", cub->c);
 	cub->x = arg->res_x;
 	cub->y = arg->res_y;

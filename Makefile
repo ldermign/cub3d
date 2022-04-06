@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/05 17:57:11 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/06 14:05:51 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS	=	./srcs/main.c \
 			./srcs/supprimer.c \
 			./raycasting/raycasting3.c \
 			./raycasting/merde.c \
-			./minimap.c 
+			./raycasting/minimap.c 
 
 INCS	=	./includes/
 

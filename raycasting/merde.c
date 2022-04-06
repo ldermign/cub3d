@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/05 21:39:44 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:38:19 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test(t_cub *cub)
 	mlx_put_image_to_window(cub->mlx, cub->mlx_ptr, cub->img, 0, 0);
 }
 
-int		key_press(int key_code, t_cub *cub)
+int	key_press(int key_code, t_cub *cub)
 {
 	double	a;
 	double	b;
@@ -58,9 +58,9 @@ int		key_press(int key_code, t_cub *cub)
 	}
 	if (key_code == 115) // s
 	{
-		if(cub->map[(int)(cub->posX - cub->dirX * 0.2)][(int)(cub->posY)] != '1')
+		if (cub->map[(int)(cub->posX - cub->dirX * 0.2)][(int)(cub->posY)] != '1')
 			cub->posX -= cub->dirX * 0.2;
-		if(cub->map[(int)(cub->posX)][(int)(cub->posY - cub->dirY * 0.2)] != '1')
+		if (cub->map[(int)(cub->posX)][(int)(cub->posY - cub->dirY * 0.2)] != '1')
 			cub->posY -= cub->dirY * 0.2;
 		test(cub);
 	}
@@ -114,18 +114,13 @@ int		key_press(int key_code, t_cub *cub)
 	return (0);
 }
 
-// int		create_trgb(int t, int r, int g, int b)
-// {
-// 	return (t << 24 | r << 16 | g << 8 | b);
-// }
-
-int		ft_loop(t_cub *cub)
+int	ft_loop(t_cub *cub)
 {
 	(void)cub;
 	return (0);
 }
 
-int		ft_quit(t_cub *cub)
+int	ft_quit(t_cub *cub)
 {
 	printf("\033[1;31mQUIT\033[0m\n");
 	mlx_destroy_window(cub->mlx, cub->mlx_ptr);
@@ -136,11 +131,11 @@ int		ft_quit(t_cub *cub)
 	return (0);
 }
 
-void        init_background(t_cub *cub, int c, int f, int x, int y)
+void	init_background(t_cub *cub, int c, int f, int x, int y)
 {
-	char    *dst;
-	int     a;
-	int     b;
+	char	*dst;
+	int		a;
+	int		b;
 
 	a = 0;
 	while (a < x)
@@ -149,13 +144,13 @@ void        init_background(t_cub *cub, int c, int f, int x, int y)
 		while (b < y / 2)
 		{
 			dst = cub->addr + (b * cub->line_length + a * (cub->bits_per_pixel / 8));
-			*(unsigned int*)dst = c;
+			*(unsigned int *)dst = c;
 			b++;
 		}
 		while (b < y)
 		{
 			dst = cub->addr + (b * cub->line_length + a * (cub->bits_per_pixel / 8));
-			*(unsigned int*)dst = f;
+			*(unsigned int *)dst = f;
 			b++;
 		}
 		a++;
@@ -170,7 +165,7 @@ void	window(t_cub *cub)
 	cub->mlx_ptr = mlx_new_window(cub->mlx, cub->x, cub->y, "Cub3D");
 	cub->img = mlx_new_image(cub->mlx, cub->x, cub->y);
 	cub->addr = mlx_get_data_addr(cub->img, &cub->bits_per_pixel,
-				&cub->line_length, &cub->endian);
+			&cub->line_length, &cub->endian);
 	test(cub);
 	// init_background(cub, cub->c, cub->f, cub->x, cub->y);
 	// raycast1(cub);
