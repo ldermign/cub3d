@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 19:44:50 by ldermign          #+#    #+#             */
-/*   Updated: 2021/09/15 16:01:15 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/06 10:14:38 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <fcntl.h>
-# include "ft_printf.h"
 # include "get_next_line.h"
 
 typedef struct s_list

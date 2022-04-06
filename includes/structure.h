@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 17:01:57 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:03:49 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef STRUCTURE_H
+# define STRUCTURE_H
 
 typedef struct	s_cub
 {
@@ -116,8 +117,6 @@ typedef	struct	s_argmts {
 	int			tmp;
     int         last;
     int         len_fd;
-	int			res_x;
-	int			res_y;
 	int 		flr_r;
 	int		 	flr_g;
 	int 		flr_b;
@@ -214,7 +213,7 @@ t_s	*s(void);
 typedef struct s_recup_data
 {
 	char	conv[3 + 1];
-	void	(*f)(t_arg *data, char *str);
+	int		(*f)(t_arg *data, char *str);
 }	t_recup;
 
 typedef struct s_texture
@@ -223,3 +222,13 @@ typedef struct s_texture
 	char	*(*f)(t_arg *data, char *str, char a, char b);
 	char	**ptr;
 }	t_text;
+
+typedef struct s_colors
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+	unsigned char	t;
+}	t_color;
+
+#endif

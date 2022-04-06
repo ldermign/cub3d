@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merde.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/05 21:39:44 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:53:46 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,6 @@ int		key_press(int key_code, t_cub *cub)
 	return (0);
 }
 
-// int		create_trgb(int t, int r, int g, int b)
-// {
-// 	return (t << 24 | r << 16 | g << 8 | b);
-// }
-
 int		ft_loop(t_cub *cub)
 {
 	(void)cub;
@@ -128,10 +123,9 @@ int		ft_loop(t_cub *cub)
 int		ft_quit(t_cub *cub)
 {
 	printf("\033[1;31mQUIT\033[0m\n");
-	mlx_destroy_window(cub->mlx, cub->mlx_ptr);
-	free(cub->mlx);
-	// free_map(cub);
-	// system("leaks cub3D");
+	quit_parsing(s()->data, "Goodbye !\n", 3, 0);
+	quit_image_2(cub);
+	quit_structure();
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -141,6 +135,7 @@ void        init_background(t_cub *cub, int c, int f, int x, int y)
 	char    *dst;
 	int     a;
 	int     b;
+
 
 	a = 0;
 	while (a < x)

@@ -6,7 +6,7 @@
 #    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 19:45:34 by ldermign          #+#    #+#              #
-#    Updated: 2021/09/13 14:47:12 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/06 10:14:10 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,22 +70,6 @@ SRCS	=	./srcs/libft/ft_atoi.c \
 # Gnl srcs
 SRCS	+=	./srcs/get_next_line/get_next_line.c \
 			./srcs/get_next_line/get_next_line_utils.c
-
-# Printf srcs
-SRCS	+=	./srcs/ft_printf/ft_printf.c \
-			./srcs/ft_printf/ptf_alloc_right_size.c \
-            ./srcs/ft_printf/ptf_check.c \
-            ./srcs/ft_printf/ptf_conversion_p_d_i_u_x.c \
-            ./srcs/ft_printf/ptf_conversion_s_c_per.c \
-            ./srcs/ft_printf/ptf_fusion_strflag_conv_cps.c \
-            ./srcs/ft_printf/ptf_fusion_strflag_conv_dius.c \
-            ./srcs/ft_printf/ptf_fusion_strflag_conv_s_utils.c \
-            ./srcs/ft_printf/ptf_init_flags.c \
-            ./srcs/ft_printf/ptf_join_width_preci.c \
-            ./srcs/ft_printf/ptf_start_fusion.c \
-            ./srcs/ft_printf/ptf_utils.c \
-            ./srcs/ft_printf/ptf_utils_itoa.c \
-            ./srcs/ft_printf/ptf_utils_size.c
 
 IDIR	=	./includes/
 

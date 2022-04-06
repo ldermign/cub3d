@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
+#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/05 17:57:11 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/06 13:21:48 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,9 @@ SRCS	=	./srcs/main.c \
 			./srcs/utils/utils_parsing_2.c \
 			./srcs/utils/utils_parsing_map.c \
 			./srcs/others/clean_exit.c \
-			./srcs/raycasting/start_raycasting.c \
 			./srcs/supprimer.c \
-			./raycasting/raycasting3.c \
-			./raycasting/merde.c \
+			./srcs/raycasting/raycasting3.c \
+			./srcs/raycasting/merde.c \
 			./minimap.c 
 
 INCS	=	./includes/
@@ -41,9 +40,9 @@ CC		=	clang
 
 MLX		=	libmlx_Linux.a
 
-CFLAGS	=	-Wall -Wextra -Werror -g3 -I ${INCS} -I ./mlx/
+CFLAGS	=	-Wall -Wextra -Werror -g3  -I ${INCS} -I ./mlx/ #-fsanitize=address
 
-MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 
 RM		=	rm -rf
 
@@ -52,7 +51,7 @@ all:		${NAME}
 ${NAME}:	${OBJS} ${INCS}
 			${MAKE} -C libft
 			${MAKE} -C mlx
-			${CC} -o ${NAME} ${OBJS} ${CFALGS} ${MLXFLG} libft/libft.a mlx/libmlx_Linux.a
+			${CC} -o ${NAME} ${OBJS} ${CFLAGS} ${MLXFLG} libft/libft.a mlx/libmlx_Linux.a
 
 -include	${DEPS}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 21:33:14 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:49:49 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,27 @@
 */
 
 int		ft_save(char *arg);
-int		ft_check_name_map(char *arg);
-void	ft_check_arg(int ac, char **ag);
-void	check_map(t_arg *data);
-void	check_wrong_data_and_recup(t_arg *data);
-void	check_resolution(t_arg *data, char *str);
-void	check_floor_sky(t_arg *data, char *str);
+int		ft_check_arg(int ac, char **ag);
+int		check_map(t_arg *data);
+int		check_wrong_data_and_recup(t_arg *data);
+int		check_floor_sky(t_arg *data, char *str);
 
 /*
 **	GET INFOS MAP.CUB
 */
 
-void	gnl_mapcub(t_arg *data, char *arg);
+int		gnl_mapcub(t_arg *data, char *arg);
 void	recup_data(t_arg *data, char *str);
-void	recup_map(t_arg *data);
-void	check_space_sprite_and_plr_map(t_arg *data, char **map, char c);
-void	check_start_end_map(t_arg *data, char **map, int plr);
-void	check_interior_map(t_arg *data, char **map, int plr);
+int		recup_map(t_arg *data);
+int		check_space_sprite_and_plr_map(t_arg *data, char **map, char c);
+int		check_start_end_map(t_arg *data, char **map, int plr);
+int		check_interior_map(t_arg *data, char **map, int plr);
 void	ft_fill_map(t_arg *data, int len, int start, int larger);
 void	save_mapcub_in_char(t_arg *data, char *arg);
-void	if_texture(t_arg *data, char *str);
+int		if_texture(t_arg *data, char *str);
 char	*get_texture(t_arg *data, char *str, char a, char b);
-void	get_sky(t_arg *data, char *str);
-void	get_floor(t_arg *data, char *str);
-void	get_resolution(t_arg *data, char *str);
+int		get_sky(t_arg *data, char *str);
+int		get_floor(t_arg *data, char *str);
 
 /*
 **	RAYCASTING
@@ -101,7 +98,10 @@ void	get_position_player(t_arg *data);
 */
 
 void	quit(t_arg *data, char *str_err, int i, int place);
-void	quit_properly_image(t_mlx *img);
+void	quit_image(t_mlx *img);
+int	quit_parsing(t_arg *data, char *str_err, int i, int place);
+void	quit_structure();
+void	quit_image_2(t_cub *cub);
 
 /*
 **	SUPPRIMER

@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 14:39:53 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/05 14:39:41 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/06 11:20:00 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	printf_struct_arg(t_arg data)
 {
 	printf(GREEN"\n\t///\\\\\\DATA MAP.CUB///\\\\\\\n\n"NORMAL);
-	printf("res_x = \t%d\n", data.res_x);
-	printf("res_y = \t%d\n", data.res_y);
 	printf("flr_r = \t%d\n", data.flr_r);
 	printf("flr_g = \t%d\n", data.flr_g);
 	printf("flr_b = \t%d\n", data.flr_b);

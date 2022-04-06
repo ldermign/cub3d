@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/05 17:22:28 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:07:30 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = cub->addr + (y * cub->line_length + x * (cub->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
+// 	dst = cub->addr + (y * cub->line_length + x * (cub->bits_per_pixel / 8));
+// 	*(unsigned int *)dst = color;
+// }
 
 void	recup_pos(t_cub *cub)
 {

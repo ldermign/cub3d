@@ -6,13 +6,13 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:46:18 by ldermign          #+#    #+#             */
-/*   Updated: 2021/04/26 09:47:52 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/06 14:58:36 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	check_space_sprite_and_plr_map(t_arg *data, char **map, char c)
+int	check_space_sprite_and_plr_map(t_arg *data, char **map, char c)
 {
 	int	i;
 	int	j;
@@ -29,7 +29,8 @@ void	check_space_sprite_and_plr_map(t_arg *data, char **map, char c)
 				if (map[i][j] == c && ((i != 0 && map[i - 1][j] == ' ')
 						|| (j != 0 && map[i][j - 1] == ' ')
 						|| map[i][j + 1] == ' ' || map[i + 1][j] == ' '))
-					quit(data, "It's missing some wall line ", 2, i + 1);
+					return (quit_parsing(data,
+							"It's missing some wall line ", 2, i + 1));
 				j++;
 			}
 		}
@@ -37,9 +38,10 @@ void	check_space_sprite_and_plr_map(t_arg *data, char **map, char c)
 		if (i == size_tab_char(map) - 1)
 			break ;
 	}
+	return (1);
 }
 
-void	check_start_end_map(t_arg *data, char **map, int plr)
+int	check_start_end_map(t_arg *data, char **map, int plr)
 {
 	int	i;
 	int	len;
@@ -48,19 +50,23 @@ void	check_start_end_map(t_arg *data, char **map, int plr)
 	len = size_tab_char(data->map) - 1;
 	if (ft_int_strchr(map[0], plr)
 		|| ft_int_strchr(map[0], '0') || ft_int_strchr(map[0], '2'))
-		quit(data, "Something's wrong in the first line of the map.\n", 0, 0);
+		return (quit_parsing(data,
+				"Something's wrong in the first line of the map.\n", 0, 0));
 	while (map[i])
 	{
 		if (ft_is_either(map[i]))
-			quit(data, "No info at the end of the file.\n", 0, 0);
+			return (quit_parsing(data,
+					"No info at the end of the file.\n", 0, 0));
 		i++;
 	}
 	if (ft_int_strchr(map[0], plr)
 		|| ft_int_strchr(map[len], '0') || ft_int_strchr(map[len], '2'))
-		quit(data, "Something's wrong in the last line of the map.\n", 0, 0);
+		return (quit_parsing(data,
+				"Something's wrong in the last line of the map.\n", 0, 0));
+	return (1);
 }
 
-void	check_interior_map(t_arg *data, char **map, int plr)
+int	check_interior_map(t_arg *data, char **map, int plr)
 {
 	int	i;
 	int	size_str;
@@ -73,9 +79,10 @@ void	check_interior_map(t_arg *data, char **map, int plr)
 			|| map[i][0] == plr || map[i][size_str] == plr
 			|| map[i][0] == '0' || map[i][size_str] == '0'
 			|| map[i][0] == '2' || map[i][size_str] == '2')
-			quit(data, "Check line ", 2, i + 1);
+			return (quit_parsing(data, "Check line ", 2, i + 1));
 		i++;
 	}
+	return (1);
 }
 
 void	ft_fill_map(t_arg *data, int len, int start, int larger)
