@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
+#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/06 13:21:48 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/06 20:08:04 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ SRCS	=	./srcs/main.c \
 			./srcs/utils/utils_parsing_map.c \
 			./srcs/others/clean_exit.c \
 			./srcs/supprimer.c \
-			./srcs/raycasting/raycasting3.c \
-			./srcs/raycasting/merde.c \
-			./minimap.c 
+			./raycasting/raycasting3.c \
+			./raycasting/merde.c \
+			./raycasting/minimap.c 
 
 INCS	=	./includes/
 

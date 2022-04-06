@@ -1,6 +1,5 @@
 
  EA ./texture/brick_wall.xpm
-
  NO ./path_to_the_north_texture.xpm
  SO ./path_to_the_south_texture.xpm
 C 80,150,230
