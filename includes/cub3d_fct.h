@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 14:27:35 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:10:07 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		check_floor_sky(t_arg *data, char *str);
 */
 
 int		gnl_mapcub(t_arg *data, char *arg);
-int		recup_data(t_arg *data, char *str);
 int		recup_map(t_arg *data);
 int		check_space_sprite_and_plr_map(t_arg *data, char **map, char c);
 int		check_start_end_map(t_arg *data, char **map, int plr);
@@ -56,7 +55,11 @@ int	all_calculs_cub(t_mlx *img, t_calc *cls, t_arg *data);
 **  R UTILS
 */
 
+/*
+**	INIT
+*/
 
+void	init_struct_arg(t_arg *data);
 
 /*
 **	UTILS
@@ -103,10 +106,8 @@ void	get_position_player(t_arg *data);
 */
 
 void	quit(t_arg *data, char *str_err, int i, int place);
-void	quit_image(t_mlx *img);
 int	quit_parsing(t_arg *data, char *str_err, int i, int place);
-void	quit_structure();
-void	quit_image_2(t_cub *cub);
+void	quit_image(t_cub *cub);
 
 /*
 **	SUPPRIMER
@@ -125,16 +126,15 @@ void	init2(t_cub *cub, int x);
 void	init_raycast(t_cub *cub);
 void	init_raycast2(t_cub *cub);
 void	print(t_cub cub);
-void	window(t_cub *cub);
+void	window(t_struct *all);
 void    init_background(t_cub *cub, int c, int f, int x, int y);
-int		ft_quit(t_cub *cub);
+int		ft_quit(t_struct *all);
 int		ft_loop(t_cub *cub);
 void	test(t_cub *cub);
-int		key_press(int key_code, t_cub *cub);
+int		key_press(int key_code, t_struct *all);
 int		ft_loop(t_cub *cub);
 void	init_background(t_cub *cub, int c, int f, int x, int y);
-void	window(t_cub *cub);
-int		ft_quit(t_cub *cub);
+void	window(t_struct *all);
 void	init_raycast(t_cub *cub);
 void	raycast1(t_cub *cub);
 int		minimap1(t_cub *cub);

@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:12:31 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 14:35:37 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:04:46 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ int	recup_map(t_arg *data)
 		return (quit_parsing(data, "This is not a map...\n", 0, 0));
 	larger = which_is_larger(data->fd);
 	ft_fill_map(data, len, start, larger);
+	return (1);
+}
+
+int	recup_data(t_arg *data, char *str)
+{
+	if (ft_int_strstr(str, "F ") == 1)
+		return (get_floor(data, str));
+	else if (ft_int_strstr(str, "C ") == 1)
+		return (get_sky(data, str));
+	else if (ft_int_strstr(str, "NO ") == 1)
+		data->north = get_texture(data, str, "NO ");
+	else if (ft_int_strstr(str, "SO ") == 1)
+		data->south = get_texture(data, str, "SO ");
+	else if (ft_int_strstr(str, "EA "))
+		data->east = get_texture(data, str, "EA ");
+	else if (ft_int_strstr(str, "WE "))
+		data->west = get_texture(data, str, "WE ");
+	else if (ft_int_strstr(str, "S  "))
+		data->sprite = get_texture(data, str, "S ");
 	return (1);
 }
 
@@ -110,24 +129,5 @@ int	gnl_mapcub(t_arg *data, char *arg)
 	free(line);
 	close(fd_map);
 	save_mapcub_in_char(data, arg);
-	return (1);
-}
-
-int	recup_data(t_arg *data, char *str)
-{
-	if (ft_int_strstr(str, "F ") == 1)
-		return (get_floor(data, str));
-	else if (ft_int_strstr(str, "C ") == 1)
-		return (get_sky(data, str));
-	else if (ft_int_strstr(str, "NO ") == 1)
-		data->north = get_texture(data, str, "NO ");
-	else if (ft_int_strstr(str, "SO ") == 1)
-		data->south = get_texture(data, str, "SO ");
-	else if (ft_int_strstr(str, "EA "))
-		data->east = get_texture(data, str, "EA ");
-	else if (ft_int_strstr(str, "WE "))
-		data->west = get_texture(data, str, "WE ");
-	else if (ft_int_strstr(str, "S  "))
-		data->sprite = get_texture(data, str, "S ");
 	return (1);
 }

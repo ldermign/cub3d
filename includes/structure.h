@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 14:16:01 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:17:28 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,12 +178,6 @@ typedef struct  s_calculs {
 	double perpWallDist;
 }				t_calc;
 
-typedef struct  s_structure {
-	t_arg *data;
-	t_mlx *img;
-	t_calc *cls;
-}				t_s;
-
 // typedef struct  s_input {
 //     int sp;
 //     int ret;
@@ -203,8 +197,6 @@ typedef struct  s_structure {
 //     int touche;
 // }               t_ipt;
 
-t_s	*s(void);
-
 typedef struct s_colors
 {
 	unsigned char	r;
@@ -212,5 +204,14 @@ typedef struct s_colors
 	unsigned char	b;
 	unsigned char	t;
 }	t_color;
+
+typedef struct	s_structure
+{
+	t_cub	cub;
+	t_arg	data;
+	t_mlx	img;
+	t_calc	cls;
+}	t_struct;
+
 
 #endif
