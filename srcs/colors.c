@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:24:09 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 20:07:41 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/07 11:20:18 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	create_trgb(int t, int r, int g, int b)
 
 void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
 {
-	// printf("test\n");
 	t_color	clr;
 
 	clr.t = get_t(color);
@@ -51,11 +50,3 @@ void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
 	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8)) + 2] = clr.r;
 	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8)) + 3] = clr.t;
 }
-
-// void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
-// {
-// 	char	*dst;
-
-// 	dst = data->addr + (y * data->size_line + x * (data->bpp / 8));
-// 	*(unsigned int *)dst = color;
-// }

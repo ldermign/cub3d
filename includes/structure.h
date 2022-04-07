@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 14:03:49 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:16:01 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct	s_cub
 	
 	void	*mlx;
 	void	*mlx_ptr;
-	void	*mlx_ptr2;
 	void	*img;
 	void	*texture_ea;
 	void	*texture_we;
@@ -205,23 +204,6 @@ typedef struct  s_structure {
 // }               t_ipt;
 
 t_s	*s(void);
-
-/*
-**  POINTEUR SUR FONCTION
-*/
-
-typedef struct s_recup_data
-{
-	char	conv[3 + 1];
-	int		(*f)(t_arg *data, char *str);
-}	t_recup;
-
-typedef struct s_texture
-{
-	char	conv[3 + 1];
-	char	*(*f)(t_arg *data, char *str, char a, char b);
-	char	**ptr;
-}	t_text;
 
 typedef struct s_colors
 {

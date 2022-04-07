@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
+#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/06 22:41:46 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/07 14:00:29 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=	./srcs/main.c \
 			./srcs/parsing/check_reso_floor_sky.c \
 			./srcs/parsing/first_step_parsing.c \
 			./srcs/parsing/check_arg.c \
+			./srcs/parsing/simple_utils.c \
 			./srcs/utils/utils.c \
 			./srcs/utils/utils_check_get_player.c \
 			./srcs/utils/utils_parsing_1.c \

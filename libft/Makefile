@@ -6,7 +6,7 @@
 #    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 19:45:34 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/06 10:14:10 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/07 11:34:09 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ OBJS	=	${SRCS:.c=.o}
 
 CC		=	clang
 
-CFLAGS	=	-Wall -Wextra -Werror -I ${IDIR}
+CFLAGS	=	-Wall -Wextra -Werror -g3 -I ${IDIR}
 
 LIBC	=	ar rc
 

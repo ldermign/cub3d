@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 17:15:51 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 14:59:23 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:26:34 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,66 +51,38 @@ int	get_sky(t_arg *data, char *str)
 	data->ciel_r = ft_atoi((const char *)str + i);
 	while (ft_isdigit(str[i]))
 		i++;
-	while (str[i] && (str[i] == ' ' || str[i] == ','))
+	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == ','))
 		i++;
 	data->ciel_g = ft_atoi((const char *)str + i);
 	while (ft_isdigit(str[i]))
 		i++;
-	while (str[i] && (str[i] == ' ' || str[i] == ','))
+	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == ','))
 		i++;
 	data->ciel_b = ft_atoi((const char *)str + i);
 	return (1);
 }
 
-char	*get_texture(t_arg *data, char *str, char a, char b)
+char	*get_texture(t_arg *data, char *new_text, char *needle)
 {
 	int		i;
 	int		len;
 	char	*text;
 
 	i = 0;
-	data->tmp = 0;
 	text = NULL;
-	while (str[i] && (str[i] == ' ' || str[i] == a || str[i] == b))
-	{
-		if (str[i] == a || (str[i] == b && b != ' '))
-			data->tmp++;
+	while (new_text[i] && (new_text[i] == ' ' || new_text[i] == '\t'))
 		i++;
-	}
-	if ((b != ' ' && (i < 2 || data->tmp > 2))
-		|| (b == ' ' && data->tmp > 1))
-		quit_parsing(data,
-			"Something's wrong in one of the texture.\n", 0, 0);
-	text = ft_strdup(&str[i]);
-	len = ft_strlen(text);
-	if (len <= 4 || ft_strchr(text, ' ') || text[len - 1] != 'm'
+	i += ft_strlen(needle);
+	while (new_text[i] && new_text[i] == ' ')
+		i++;
+	text = ft_strdup(&new_text[i]);
+	len = ft_strlen(&new_text[i]);
+	if (len <= 4 || text[len - 1] != 'm'
 		|| text[len - 2] != 'p' || text[len - 3] != 'x'
 		|| text[len - 4] != '.')
-		quit_parsing(data, "Check name of texture.\n", 0, 0);
-	return (text);
-}
-
-int	if_texture(t_arg *data, char *str)
-{
-	const t_text	which[] = {
-	{"NO ", get_texture, &data->north}, {"SO ", get_texture, &data->south},
-	{"EA ", get_texture, &data->east}, {"WE ", get_texture, &data->west},
-	{"S ", get_texture, &data->sprite}, {"", NULL, NULL}
-	};
-	int				i;
-
-	i = 0;
-	while (which[i].f)
 	{
-		if (ft_int_strstr(str, (char *)which[i].conv))
-		{
-			if (*which[i].ptr != NULL)
-				return (quit_parsing(data, "Some info are duplicated.\n", 0, 0));
-			*which[i].ptr = which[i].f(data, str,
-					which[i].conv[0], which[i].conv[1]);
-			break ;
-		}
-		++i;
+		quit_parsing(data, "Check name of texture.\n", 0, 0);
+		return (NULL);
 	}
-	return (1);
+	return (text);
 }

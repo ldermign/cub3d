@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 12:23:12 by ldermign          #+#    #+#             */
-/*   Updated: 2021/04/26 09:30:08 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 12:30:05 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ char	*ft_last_call(char *str)
 	free(str);
 	return (new);
 }
+
+#include <stdio.h>
 
 int	get_next_line(int fd, char **line)
 {

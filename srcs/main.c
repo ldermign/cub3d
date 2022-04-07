@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 22:35:40 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/07 14:30:30 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	get_pars(t_arg *data, t_mlx *img, t_calc *clcls)
 {
 	ft_memset(img, 0, sizeof(t_mlx));
 	ft_memset(clcls, 0, sizeof(t_calc));
-	img->width = 500;
-	img->height = 500;
+	img->width = 600;
+	img->height = 600;
 	img->sky = create_trgb(1, data->ciel_r, data->ciel_g, data->ciel_b);
 	img->floor = create_trgb(1, data->flr_r, data->flr_g, data->flr_b);
 	clcls->plrX = (int)data->plrX;
@@ -129,7 +129,12 @@ int		main(int ac, char **ag)
 	t_cub	cub;
 
 	if (parsing(ac, ag) == -1)
+	{
+		free(s()->img);
+		free(s()->cls);
+		free(s());
 		exit (1);
+	}
 	get_pars(s()->data, s()->img, s()->cls);
 	get_orientation_player(s()->cls, s()->data);
 	recup_cub(&cub, s()->img, s()->data);
@@ -143,10 +148,12 @@ int		main(int ac, char **ag)
 	return (0);
 }
 
+// ==528264== 9 bytes in 1 blocks are still reachable in loss record 1 of 2
+// ==528264==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+// ==528264==    by 0x4085EB: ft_last_call (in /mnt/nfs/homes/ldermign/Desktop/cub3d/cub3d)
+// ==528264==    by 0x4087BC: get_next_line (in /mnt/nfs/homes/ldermign/Desktop/cub3d/cub3d)
+// ==528264==    by 0x4048A1: gnl_mapcub (first_step_parsing.c:100)
+// ==528264==    by 0x402868: parsing (main.c:79)
+// ==528264==    by 0x402A54: main (main.c:131)
+// ==528264== 
 
-// ==567246== Conditional jump or move depends on uninitialised value(s)
-// ==567246==    at 0x406422: test (merde.c:19)
-// ==567246==    by 0x406FAD: window (merde.c:176)
-// ==567246==    by 0x402B4D: main (main.c:141)
-// ==567246==  Uninitialised value was created by a stack allocation
-// ==567246==    at 0x402A20: main (main.c:129)

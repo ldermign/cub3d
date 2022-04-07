@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:12:31 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 14:56:49 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:35:37 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,19 @@ int	check_wrong_data_and_recup(t_arg *data)
 	int	i;
 
 	i = 0;
-	while (data->fd[i] != NULL
-		&& (ft_is_either(data->fd[i]) || data->fd[i][0] == '\0'))
+	while (data->fd[i])
 	{
-		recup_data(data, data->fd[i]);
+		if (!ft_is_either(data->fd[i]) && data->fd[i][0] != '\0')
+		{
+			if (!ft_is_either(data->fd[i]) && is_map(data->fd[i]) == -1)
+				return (quit_parsing(data, "Wrong info line ", 1, i + 1));
+			else if (is_map(data->fd[i]) == 1)
+				break ;
+		}
+		else if (recup_data(data, data->fd[i]) == -1)
+			return (-1);
 		i++;
 	}
-	while (data->fd[i]
-		&& (ft_int_strchr(data->fd[i], '1') || data->fd[i][0] == '\0'))
-		i++;
-	if (data->fd[i] != NULL)
-		return (quit_parsing(data, "There is something at the end, line ",
-				1, i + 1));
 	if (data->flr_r < 0 || data->flr_g < 0 || data->flr_b < 0
 		|| data->ciel_r < 0 || data->ciel_g < 0 || data->ciel_b < 0
 		|| data->flr_r > 255 || data->flr_g > 255 || data->flr_b > 255
@@ -102,8 +103,6 @@ int	gnl_mapcub(t_arg *data, char *arg)
 			return (quit_parsing(data, "Petit malin...\n", 0, 0));
 		if (ret <= 0)
 			break ;
-		if (ft_is_noting(line) && !ft_int_strchr(line, '1') && line[0] != '\0')
-			return (quit_parsing(data, "Check line ", 1, data->len_fd + 1));
 		data->len_fd++;
 		free(line);
 	}
@@ -114,23 +113,21 @@ int	gnl_mapcub(t_arg *data, char *arg)
 	return (1);
 }
 
-void	recup_data(t_arg *data, char *str)
+int	recup_data(t_arg *data, char *str)
 {
-	const t_recup	reso_sky_floor[] = {
-	{"F ", get_floor}, {"C ", get_sky},
-	{"WE ", if_texture}, {"EA ", if_texture}, {"NO ", if_texture},
-	{"SO ", if_texture}, {"S ", if_texture}, {"", NULL}
-	};
-	int				i;
-
-	if (ft_is_either(str))
-	{
-		i = 0;
-		while (reso_sky_floor[i].f)
-		{
-			if (ft_int_strstr(str, (char *)reso_sky_floor[i].conv))
-				reso_sky_floor[i].f(data, str);
-			++i;
-		}
-	}
+	if (ft_int_strstr(str, "F ") == 1)
+		return (get_floor(data, str));
+	else if (ft_int_strstr(str, "C ") == 1)
+		return (get_sky(data, str));
+	else if (ft_int_strstr(str, "NO ") == 1)
+		data->north = get_texture(data, str, "NO ");
+	else if (ft_int_strstr(str, "SO ") == 1)
+		data->south = get_texture(data, str, "SO ");
+	else if (ft_int_strstr(str, "EA "))
+		data->east = get_texture(data, str, "EA ");
+	else if (ft_int_strstr(str, "WE "))
+		data->west = get_texture(data, str, "WE ");
+	else if (ft_int_strstr(str, "S  "))
+		data->sprite = get_texture(data, str, "S ");
+	return (1);
 }

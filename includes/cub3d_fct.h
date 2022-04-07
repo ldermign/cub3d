@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 22:41:32 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/07 14:27:35 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ int		check_floor_sky(t_arg *data, char *str);
 */
 
 int		gnl_mapcub(t_arg *data, char *arg);
-void	recup_data(t_arg *data, char *str);
+int		recup_data(t_arg *data, char *str);
 int		recup_map(t_arg *data);
 int		check_space_sprite_and_plr_map(t_arg *data, char **map, char c);
 int		check_start_end_map(t_arg *data, char **map, int plr);
 int		check_interior_map(t_arg *data, char **map, int plr);
 void	ft_fill_map(t_arg *data, int len, int start, int larger);
 void	save_mapcub_in_char(t_arg *data, char *arg);
-int		if_texture(t_arg *data, char *str);
-char	*get_texture(t_arg *data, char *str, char a, char b);
+char	*get_texture(t_arg *data, char *new_text, char *needle);
 int		get_sky(t_arg *data, char *str);
 int		get_floor(t_arg *data, char *str);
 
@@ -66,6 +65,12 @@ int	all_calculs_cub(t_mlx *img, t_calc *cls, t_arg *data);
 int		ft_int_strstr(char *str, char *needle);
 int		ft_int_strchr(const char *str, int c);
 void	free_str(char **tab);
+
+/*
+**	UTILS PARSING
+*/
+
+int	is_map(char *str);
 
 /*
 **	COLORS
