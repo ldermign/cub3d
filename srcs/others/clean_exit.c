@@ -6,11 +6,26 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 14:59:45 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:13:14 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	free_tab_int(int **tab)
+{
+	int	i;
+
+	i = 0;
+	if (tab == NULL)
+		return ;
+	while (i < 32)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 void	ft_print_map(char **map)
 {
@@ -46,6 +61,16 @@ int	quit_parsing(t_arg *data, char *str_err, int i, int place)
 
 void	quit_image(t_cub *cub)
 {
+	// free_tab_int(cub->txt_north);
+	// free_tab_int(cub->txt_south);
+	// free_tab_int(cub->txt_east);
+	// free_tab_int(cub->txt_west);
+	// free_tab_int(cub->txt_sprite);
+	free(cub->txt_north);
+	free(cub->txt_south);
+	free(cub->txt_east);
+	free(cub->txt_west);
+	free(cub->txt_sprite);
 	if (cub)
 	{
 		if (cub->img)

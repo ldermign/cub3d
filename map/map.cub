@@ -1,17 +1,17 @@
 
  EA ./texture/brick_wall.xpm
- NO           ./path_to_the_north_texture.xpm
+ NO           ./texture/brick_wall.xpm
 
 
 
- SO ./path_to_the_south_texture.xpm
+ SO ./texture/brick_wall.xpm
 
 
 C 80,            150        ,230
- WE        ./path_to_the_west_texture.xpm
+ WE        ./texture/brick_wall.xpm
 
 
-		S  ./path_to_the_sprite_texture.xpm
+		S  ./texture/brick_wall.xpm
 F  80,     230 ,                150
 
 

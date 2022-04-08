@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 11:49:37 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 11:52:36 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:54:17 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,32 @@ int	ft_check_arg(int ac, char **ag)
 		printf("Error\nToo many arguments.\n");
 		exit (0);
 	}
+	return (1);
+}
+
+int	check_textures(t_arg *data)
+{
+	int	fd;
+
+	fd = open(data->north, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	close (fd);
+	fd = open(data->south, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	close (fd);
+	fd = open(data->east, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	close (fd);
+	fd = open(data->west, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	close (fd);
+	fd = open(data->sprite, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	close (fd);
 	return (1);
 }

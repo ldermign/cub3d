@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 15:17:28 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:13:20 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,16 @@ typedef struct	s_cub
 	double	wallX;
 	double	step;
 	double	texPos;
-	char	texture[8][64 * 64];
+	char	texture[600][600];
+
+// ajoute
+	int		*txt_north;
+	int		*txt_south;
+	int		*txt_east;
+	int		*txt_west;
+	int		*txt_sprite;
+// ajoute
+
 	int		texWidth;
 	int		texHeight;
 	int		texY;
@@ -139,63 +148,15 @@ typedef struct  s_data {
     void        *win;
     void        *img;
     char        *addr;
+	int			*text;
+	int			width;
+	int			height;
     int         bpp;
     int         size_line;
     int         endian;
-	int			width;
-	int			height;
 	int			sky;
 	int			floor;
-
-    int x;
-    int y;
 }               t_mlx;
-
-typedef struct  s_calculs {
-	int hit;
-	int side;
-	double plrX; // vecteur positionnel du joueur // position
-	double plrY;
-	double dirX; // direction du joueur
-	double dirY;
-	double planeX; // plan camera du joueur
-	double planeY;
-	double speed;
-	double rota;
-	double cameraX;
-	double rayDirX;
-	double rayDirY;
-	int mapX; // carre dans lequel le rayon est
-	int mapY;
-	int stepX; 	//what direction to step in x or y-direction (either +1 or -1)
-	int stepY;
-	double sideDistX; // distance que le rayon a a parcourir jusqu'au mur
-	double sideDistY; //length of ray from current position to next x or y-side
-	double deltaDistX;
-	double deltaDistY;
-	int	drawStart;
-	int	drawEnd;
-	double perpWallDist;
-}				t_calc;
-
-// typedef struct  s_input {
-//     int sp;
-//     int ret;
-//     int w;
-//     int a;
-//     int s;
-//     int d;
-//     int f;
-//     int l;
-//     int m;
-//     int arr_u;
-//     int arr_d;
-//     int arr_l;
-//     int arr_r;
-//     int mouse_l;
-//     int mouse_r;
-//     int touche;
-// }               t_ipt;
 
 typedef struct s_colors
 {
@@ -210,7 +171,6 @@ typedef struct	s_structure
 	t_cub	cub;
 	t_arg	data;
 	t_mlx	img;
-	t_calc	cls;
 }	t_struct;
 
 

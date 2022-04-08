@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 17:15:51 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 14:26:34 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:22:09 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	get_sky(t_arg *data, char *str)
 	return (1);
 }
 
-char	*get_texture(t_arg *data, char *new_text, char *needle)
+char	*get_name_texture(t_arg *data, char *new_text, char *needle)
 {
 	int		i;
 	int		len;

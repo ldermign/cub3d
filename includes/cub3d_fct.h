@@ -6,13 +6,12 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 15:10:07 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:01:19 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_FCT_H
 # define CUB3D_FCT_H
-
 
 /*
 **	CHECK PARSING
@@ -23,6 +22,7 @@ int		ft_check_arg(int ac, char **ag);
 int		check_map(t_arg *data);
 int		check_wrong_data_and_recup(t_arg *data);
 int		check_floor_sky(t_arg *data, char *str);
+int		check_textures(t_arg *data);
 
 /*
 **	GET INFOS MAP.CUB
@@ -35,25 +35,15 @@ int		check_start_end_map(t_arg *data, char **map, int plr);
 int		check_interior_map(t_arg *data, char **map, int plr);
 void	ft_fill_map(t_arg *data, int len, int start, int larger);
 void	save_mapcub_in_char(t_arg *data, char *arg);
-char	*get_texture(t_arg *data, char *new_text, char *needle);
+char	*get_name_texture(t_arg *data, char *new_text, char *needle);
 int		get_sky(t_arg *data, char *str);
 int		get_floor(t_arg *data, char *str);
 
 /*
-**	RAYCASTING
+**	TEST LIENA TEXTURES
 */
 
-int	all_calculs_cub(t_mlx *img, t_calc *cls, t_arg *data);
-
-/*
-**	R CALCULS
-*/
-
-
-
-/*
-**  R UTILS
-*/
+void	get_texture(t_cub *cub, t_arg *arg);
 
 /*
 **	INIT
@@ -106,7 +96,7 @@ void	get_position_player(t_arg *data);
 */
 
 void	quit(t_arg *data, char *str_err, int i, int place);
-int	quit_parsing(t_arg *data, char *str_err, int i, int place);
+int		quit_parsing(t_arg *data, char *str_err, int i, int place);
 void	quit_image(t_cub *cub);
 
 /*
@@ -120,7 +110,6 @@ void	printf_struct_arg(t_arg data);
 /*
 **  RAYCASTING
 */
-
 
 void	init2(t_cub *cub, int x);
 void	init_raycast(t_cub *cub);

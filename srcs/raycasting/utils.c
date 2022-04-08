@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/07 15:00:20 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:00:51 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	window(t_struct *all)
 	all->cub.img = mlx_new_image(all->cub.mlx, all->cub.x, all->cub.y);
 	all->cub.addr = mlx_get_data_addr(all->cub.img, &all->cub.bits_per_pixel,
 			&all->cub.line_length, &all->cub.endian);
+	get_texture(&(all->cub), &(all->data));
 	test(&all->cub);
 	// init_background(cub, cub->c, cub->f, cub->x, cub->y);
 	// raycast1(cub);

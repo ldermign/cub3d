@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:12:31 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 15:04:46 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:22:00 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ int	recup_data(t_arg *data, char *str)
 	else if (ft_int_strstr(str, "C ") == 1)
 		return (get_sky(data, str));
 	else if (ft_int_strstr(str, "NO ") == 1)
-		data->north = get_texture(data, str, "NO ");
+		data->north = get_name_texture(data, str, "NO ");
 	else if (ft_int_strstr(str, "SO ") == 1)
-		data->south = get_texture(data, str, "SO ");
+		data->south = get_name_texture(data, str, "SO ");
 	else if (ft_int_strstr(str, "EA "))
-		data->east = get_texture(data, str, "EA ");
+		data->east = get_name_texture(data, str, "EA ");
 	else if (ft_int_strstr(str, "WE "))
-		data->west = get_texture(data, str, "WE ");
+		data->west = get_name_texture(data, str, "WE ");
 	else if (ft_int_strstr(str, "S  "))
-		data->sprite = get_texture(data, str, "S ");
+		data->sprite = get_name_texture(data, str, "S ");
 	return (1);
 }
 
