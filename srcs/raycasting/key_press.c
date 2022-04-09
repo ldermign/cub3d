@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:11:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/07 15:01:12 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 18:42:10 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	key_press_w(t_cub *cub)
 	if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)]
 			!= '1')
 		cub->posY += cub->dirY * 0.2;
-	test(cub);
+	draw_img(cub);
 }
 
 void	key_press_left(t_cub *cub)
@@ -31,7 +31,7 @@ void	key_press_left(t_cub *cub)
 	cub->oldPlaneX = cub->planeX;
 	cub->planeX = cub->planeX * cos(0.1) - cub->planeY * sin(0.1);
 	cub->planeY = cub->oldPlaneX * sin(0.1) + cub->planeY * cos(0.1);
-	test(cub);
+	draw_img(cub);
 }
 
 void	key_press_right(t_cub *cub)
@@ -42,7 +42,7 @@ void	key_press_right(t_cub *cub)
 	cub->oldPlaneX = cub->planeX;
 	cub->planeX = cub->planeX * cos(-0.1) - cub->planeY * sin(-0.1);
 	cub->planeY = cub->oldPlaneX * sin(-0.1) + cub->planeY * cos(-0.1);
-	test(cub);
+	draw_img(cub);
 }
 
 void	key_press_s(t_cub *cub)
@@ -53,7 +53,7 @@ void	key_press_s(t_cub *cub)
 	if (cub->map[(int)(cub->posX)][(int)(cub->posY - cub->dirY * 0.2)]
 			!= '1')
 		cub->posY -= cub->dirY * 0.2;
-	test(cub);
+	draw_img(cub);
 }
 
 int	key_press(int key_code, t_struct *all)

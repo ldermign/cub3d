@@ -3,17 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/08 15:13:20 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:41:03 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURE_H
 # define STRUCTURE_H
 
-typedef struct	s_cub
+typedef struct s_texture
+{
+	char	texture[600][600];
+	double	texPos;
+	int		texNum;
+	int		texX;
+	int		width_no;
+	int		height_no;
+	int		width_we;
+	int		height_we;
+	int		width_so;
+	int		height_so;
+	int		width_ea;
+	int		height_ea;
+	int		texWidth;
+	int		texHeight;
+	int		texY;
+	int		*txt_north;
+	int		*txt_south;
+	int		*txt_east;
+	int		*txt_west;
+	int		*txt_sprite;
+}				t_text;
+
+typedef struct s_cub
 {
 	//raycasting
 	double	posX;				//position x du joueur
@@ -32,22 +56,6 @@ typedef struct	s_cub
 	double	perpWallDist;		//distance jusqu'au mur perpandiculaire au plan camera
 	double	oldDirX;
 	double	oldPlaneX;
-	double	wallX;
-	double	step;
-	double	texPos;
-	char	texture[600][600];
-
-// ajoute
-	int		*txt_north;
-	int		*txt_south;
-	int		*txt_east;
-	int		*txt_west;
-	int		*txt_sprite;
-// ajoute
-
-	int		texWidth;
-	int		texHeight;
-	int		texY;
 	int		stepX;				//dans quelle direction avancer
 	int		stepY;				//dans quelle direction avancer
 	int		mapX;				//dans quel carre on est
@@ -57,53 +65,17 @@ typedef struct	s_cub
 	int		lineHeight;
 	int		hit;
 	int		side;
-	int		texNum;
-	int		texX;
-	int		width_no;
-	int		height_no;
-	int		width_we;
-	int		height_we;
-	int		width_so;
-	int		height_so;
-	int		width_ea;
-	int		height_ea;
-
-
-	
 	//img
-	
-	
-	
 	void	*mlx;
 	void	*mlx_ptr;
 	void	*img;
-	void	*texture_ea;
-	void	*texture_we;
-	void	*texture_no;
-	void	*texture_so;
 	char	*addr;
-	char	*addr_no;
-	char	*addr_ea;
-	char	*addr_so;
-	char	*addr_we;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
-	int		background;
-	int		screen_x;
-	int		screen_y;
-
-
-
 	//map
-	
-	
-	
 	int		x;
 	int		y;
-	int		a;
-	int		b;
-	int		fc;
 	char	*north;
 	char	*south;
 	char	*west;
@@ -114,49 +86,56 @@ typedef struct	s_cub
 	char	player;
 	char	*line;
 	char	**map;
-	int	reste_x;
-	int	reste_y;
-	int	a2;			//largeur carre
-	int	mini;
-	int	jsp;
+	int		a2;			//largeur carre
+	int		mini;
+	// t_text	text;
+	int		*txt_north;
+	int		*txt_south;
+	int		*txt_east;
+	int		*txt_west;
+	int		*txt_sprite;
+	int		texWidth;
+	int		texHeight;
 }				t_cub;
 
-typedef	struct	s_argmts {
+typedef struct s_argmts
+{
 	int			tmp;
-    int         last;
-    int         len_fd;
-	int 		flr_r;
-	int		 	flr_g;
-	int 		flr_b;
-	int 		ciel_r;
+	int			last;
+	int			len_fd;
+	int			flr_r;
+	int			flr_g;
+	int			flr_b;
+	int			ciel_r;
 	int			ciel_g;
-	int 		ciel_b;
+	int			ciel_b;
 	char		*north;
 	char		*south;
 	char		*west;
 	char		*east;
 	char		*sprite;
 	char		**fd;
-    char        **map;
-	int         player;
-    double		plrX;
-    double		plrY;
+	char		**map;
+	int			player;
+	double		plrX;
+	double		plrY;
 }				t_arg;
 
-typedef struct  s_data {
-    void        *mlx;
-    void        *win;
-    void        *img;
-    char        *addr;
+typedef struct s_data
+{
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
 	int			*text;
 	int			width;
 	int			height;
-    int         bpp;
-    int         size_line;
-    int         endian;
+	int			bpp;
+	int			size_line;
+	int			endian;
 	int			sky;
 	int			floor;
-}               t_mlx;
+}				t_mlx;
 
 typedef struct s_colors
 {
@@ -166,12 +145,11 @@ typedef struct s_colors
 	unsigned char	t;
 }	t_color;
 
-typedef struct	s_structure
+typedef struct s_structure
 {
 	t_cub	cub;
 	t_arg	data;
 	t_mlx	img;
 }	t_struct;
-
 
 #endif

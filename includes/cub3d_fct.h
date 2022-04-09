@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/08 15:01:19 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:27:51 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	free_str(char **tab);
 **	UTILS PARSING
 */
 
-int	is_map(char *str);
+int		is_map(char *str);
 
 /*
 **	COLORS
@@ -105,36 +105,29 @@ void	quit_image(t_cub *cub);
 
 void	printf_struct_arg(t_arg data);
 
-
-
 /*
 **  RAYCASTING
 */
 
+int		ft_loop(t_cub *cub);
+int		ft_quit(t_struct *all);
 void	init2(t_cub *cub, int x);
+void	init_background(t_cub *cub, int x, int y);
 void	init_raycast(t_cub *cub);
 void	init_raycast2(t_cub *cub);
-void	print(t_cub cub);
-void	window(t_struct *all);
-void    init_background(t_cub *cub, int c, int f, int x, int y);
-int		ft_quit(t_struct *all);
-int		ft_loop(t_cub *cub);
-void	test(t_cub *cub);
 int		key_press(int key_code, t_struct *all);
-int		ft_loop(t_cub *cub);
-void	init_background(t_cub *cub, int c, int f, int x, int y);
-void	window(t_struct *all);
-void	init_raycast(t_cub *cub);
-void	raycast1(t_cub *cub);
-int		minimap1(t_cub *cub);
-void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
-int		minimap2(t_cub *cub, int k);
-void	recup_pos(t_cub *cub);
-void	key_press_d(t_cub *cub);
 void	key_press_a(t_cub *cub);
+void	key_press_d(t_cub *cub);
 void	key_press_m(t_cub *cub);
-
-
-
+int		minimap1(t_cub *cub);
+int		minimap2(t_cub *cub, int k);
+void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
+void	print(t_cub cub);
+void	raycast1(t_cub *cub);
+void	recup_pos(t_cub *cub);
+void	draw_img(t_cub *cub);
+void	window(t_struct *all);
+int		ft_loop(t_cub *cub);
+void	window(t_struct *all);
 
 #endif

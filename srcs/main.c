@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/08 15:15:11 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:39:48 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,25 +96,25 @@ void	get_texture(t_cub *cub, t_arg *arg)
 void	recup_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 {
 	cub->mini = -1;
-	cub->bits_per_pixel = img->bpp;
+	cub->bpp = img->bpp;
 	cub->line_length = img->size_line;
 	cub->endian = img->endian;
 	cub->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
 	cub->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
 	cub->x = 600;
 	cub->y = 600;
-	cub->east = arg->east;
-	cub->west = arg->west;
-	cub->south = arg->south;
-	cub->north = arg->north;
-	cub->sprite = arg->sprite;
+	// cub->east = arg->east;
+	// cub->west = arg->west;
+	// cub->south = arg->south;
+	// cub->north = arg->north;
+	// cub->sprite = arg->sprite;
 	cub->player = (char)arg->player;
 	cub->map = arg->map;
 	recup_pos(cub);
 	init_raycast(cub);
 }
 
-int		main(int ac, char **ag)
+int	main(int ac, char **ag)
 {
 	t_struct	all;
 
@@ -122,9 +122,6 @@ int		main(int ac, char **ag)
 		exit (1);
 	recup_cub(&all.cub, &(all.img), &all.data);
 	print(all.cub);
-	printf("dirX : %f\ndirY : %f\nplaneX : %f\nplaneY : %f\n", all.cub.dirX, all.cub.dirY, all.cub.planeX, all.cub.planeY);
 	window(&all);
-
 	return (0);
 }
-

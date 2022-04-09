@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/08 13:10:37 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 18:39:21 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	raycast2(t_cub *cub, int color, int x)
 		cub->drawEnd = cub->y - 1;
 	if (cub->side == 1)
 		color /= 2;
-	while (cub->drawStart < cub->drawEnd)
+	while (cub->drawStart <= cub->drawEnd)
 	{
 		my_mlx_pixel_put(cub, x, cub->drawStart, color);
 		cub->drawStart++;

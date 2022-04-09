@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
+#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/07 15:06:52 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/09 18:32:53 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ CC		=	clang
 
 MLX		=	libmlx_Linux.a
 
-CFLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address -I ${INCS} -I ./mlx/ #-fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address -I ${INCS} -I ./mlx/ -Ofast #-fsanitize=address
 
 MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 

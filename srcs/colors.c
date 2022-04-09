@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:24:09 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/07 11:20:18 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/09 18:08:10 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
 	clr.r = get_r(color);
 	clr.g = get_g(color);
 	clr.b = get_b(color);
-	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8))] = clr.b;
-	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8)) + 1] = clr.g;
-	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8)) + 2] = clr.r;
-	cub->addr[(y * cub->line_length + x * (cub->bits_per_pixel / 8)) + 3] = clr.t;
+	cub->addr[(y * cub->line_length + x * (cub->bpp / 8))] = clr.b;
+	cub->addr[(y * cub->line_length + x * (cub->bpp / 8)) + 1] = clr.g;
+	cub->addr[(y * cub->line_length + x * (cub->bpp / 8)) + 2] = clr.r;
+	cub->addr[(y * cub->line_length + x * (cub->bpp / 8)) + 3] = clr.t;
 }

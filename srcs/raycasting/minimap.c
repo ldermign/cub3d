@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 16:24:36 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/06 21:11:05 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/09 18:08:37 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	my_mlx_pixel_put_square(t_cub *cub, int x, int y, int color)
 		while (b < cub->a2)
 		{
 			dst = cub->addr + ((a + y) * cub->line_length
-					+ (b + x) * (cub->bits_per_pixel / 8));
+					+ (b + x) * (cub->bpp / 8));
 			*(unsigned int *)dst = color;
 			b++;
 		}
