@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:08:34 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:14:09 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:57:08 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,17 @@ void	init2(t_cub *cub, int x)
 		cub->delta_dist_y = 0;
 	else
 		cub->delta_dist_y = fabs(1 / cub->raydir_y);
+}
+
+void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg)
+{
+	cub->args = arg;
+	cub->mini = 0;
+	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
+	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
+	cub->x = 650;
+	cub->y = 650;
+	cub->img_mlx = img;
+	recup_pos(cub);
+	init_raycast(cub);
 }

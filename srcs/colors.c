@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:24:09 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 16:20:29 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 20:09:01 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
 {
 	t_color	clr;
 
+	if (x < 0 || y < 0)
+		return ;
 	clr.t = get_t(color);
 	clr.r = get_r(color);
 	clr.g = get_g(color);

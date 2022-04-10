@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/09 18:32:53 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/10 19:58:16 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS	=	./srcs/main.c \
 			./srcs/raycasting/minimap.c \
 			./srcs/raycasting/init.c \
 			./srcs/raycasting/key_press.c \
-			./srcs/raycasting/key_press2.c 
+			./srcs/raycasting/key_press2.c \
+			./srcs/raycasting/draw.c 
 
 INCS	=	./includes/
 

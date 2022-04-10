@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 16:24:41 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:56:35 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 
 	ft_bzero(&txt, sizeof(txt));
 	color = NULL;
-	width = 600;
-	height = 600;
+	width = 650;
+	height = 650;
 	txt.img = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
 	txt.text = (int *)mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
@@ -76,8 +76,8 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 
 void	get_texture(t_cub *cub, t_arg *arg)
 {
-	cub->text.tex_height = 600;
-	cub->text.tex_width = 600;
+	cub->text.tex_height = 650;
+	cub->text.tex_width = 650;
 	cub->text.txt_north = create_txt(arg->north, cub);
 	cub->text.txt_south = create_txt(arg->south, cub);
 	cub->text.txt_east = create_txt(arg->east, cub);
@@ -93,26 +93,13 @@ void	get_texture(t_cub *cub, t_arg *arg)
 	}
 }
 
-void	recup_cub(t_cub *cub, t_mlx *img, t_arg *arg)
-{
-	cub->args = arg;
-	cub->mini = -1;
-	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
-	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
-	cub->x = 600;
-	cub->y = 600;
-	cub->img_mlx = img;
-	recup_pos(cub);
-	init_raycast(cub);
-}
-
 int	main(int ac, char **ag)
 {
 	t_struct	all;
 
 	if (parsing(ac, ag, &all.data) == -1)
 		exit (1);
-	recup_cub(&all.cub, &(all.img), &all.data);
+	init_cub(&all.cub, &(all.img), &all.data);
 	print(all.cub);
 	window(&all);
 	return (0);

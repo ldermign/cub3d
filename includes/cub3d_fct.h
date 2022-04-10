@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/09 19:27:51 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:57:55 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,9 @@ void	printf_struct_arg(t_arg data);
 int		ft_loop(t_cub *cub);
 int		ft_quit(t_struct *all);
 void	init2(t_cub *cub, int x);
-void	init_background(t_cub *cub, int x, int y);
+void	draw_background(t_cub *cub, int x, int y);
+void	draw_img(t_cub *cub);
+void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg);
 void	init_raycast(t_cub *cub);
 void	init_raycast2(t_cub *cub);
 int		key_press(int key_code, t_struct *all);
@@ -125,7 +127,6 @@ void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
 void	print(t_cub cub);
 void	raycast1(t_cub *cub);
 void	recup_pos(t_cub *cub);
-void	draw_img(t_cub *cub);
 void	window(t_struct *all);
 int		ft_loop(t_cub *cub);
 void	window(t_struct *all);

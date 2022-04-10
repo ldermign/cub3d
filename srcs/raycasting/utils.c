@@ -6,21 +6,11 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:22:20 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 19:57:04 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	draw_img(t_cub *cub)
-{
-	init_background(cub, cub->x, cub->y);
-	raycast1(cub);
-	if (cub->mini == 1)
-		minimap1(cub);
-	mlx_put_image_to_window(cub->img_mlx->mlx, cub->img_mlx->win,
-		cub->img_mlx->img, 0, 0);
-}
 
 int	ft_loop(t_cub *cub)
 {
@@ -35,34 +25,6 @@ int	ft_quit(t_struct *all)
 	quit_image(&(all->cub));
 	exit(EXIT_SUCCESS);
 	return (0);
-}
-
-void	init_background(t_cub *cub, int x, int y)
-{
-	char	*dst;
-	int		a;
-	int		b;
-
-	a = 0;
-	while (a < x)
-	{
-		b = 0;
-		while (b < y / 2)
-		{
-			dst = cub->img_mlx->addr + (b * cub->img_mlx->size_line
-					+ a * (cub->img_mlx->bpp / 8));
-			*(unsigned int *)dst = cub->args->c;
-			b++;
-		}
-		while (b < y)
-		{
-			dst = cub->img_mlx->addr + (b * cub->img_mlx->size_line
-					+ a * (cub->img_mlx->bpp / 8));
-			*(unsigned int *)dst = cub->args->f;
-			b++;
-		}
-		a++;
-	}
 }
 
 void	window(t_struct *all)
@@ -86,18 +48,17 @@ void	print(t_cub cub)
 	int	i;
 
 	i = 0;
-	// printf("\n\033[1;32m-> OK  🐸\033[0m\n\n");
-	printf("\n\033[1;32m-> OK  🐸\033[0m\n\n");
+	printf("\n\033[1;32m-> OK\033[0m\n\n");
 	printf("\n\033[1;33mINFOS : \033[0m\n\n");
 	printf("\033[1;34mx	\033[0m -> %d\n", cub.x);
 	printf("\033[1;34my	\033[0m -> %d\n", cub.y);
 	printf("\033[1;34mf	\033[0m -> %d\n", cub.args->f);
 	printf("\033[1;34mc	\033[0m -> %d\n", cub.args->c);
-	// printf("\033[1;34mEAST	\033[0m -> %s\n", cub.east);
-	// printf("\033[1;34mWEST	\033[0m -> %s\n", cub.west);
-	// printf("\033[1;34mSOUTH	\033[0m -> %s\n", cub.south);
-	// printf("\033[1;34mNORTH	\033[0m -> %s\n", cub.north);
-	// printf("\033[1;34mSPRITE	\033[0m -> %s\n", cub.sprite);
+	printf("\033[1;34mEAST	\033[0m -> %s\n", cub.args->east);
+	printf("\033[1;34mWEST	\033[0m -> %s\n", cub.args->west);
+	printf("\033[1;34mSOUTH	\033[0m -> %s\n", cub.args->south);
+	printf("\033[1;34mNORTH	\033[0m -> %s\n", cub.args->north);
+	printf("\033[1;34mSPRITE	\033[0m -> %s\n", cub.args->sprite);
 	printf("\033[1;34mPLAYER	\033[0m -> %c\n", cub.args->player);
 	printf("\n\033[1;33mMAP : \033[0m\n\n");
 	while (cub.args->map[i] != NULL)
