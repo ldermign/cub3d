@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check_get_player.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:46:12 by ldermign          #+#    #+#             */
-/*   Updated: 2021/05/06 13:52:09 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/10 16:25:44 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	get_position_player(t_arg *data)
 		{
 			if (data->map[i][j] == data->player)
 			{
-				data->plrX = i;
-				data->plrY = j;
+				data->plr_x = i;
+				data->plr_y = j;
 				break ;
 			}
 			j++;

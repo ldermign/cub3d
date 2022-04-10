@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 22:40:45 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/09 18:41:59 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:17:04 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	key_press_a(t_cub *cub)
 	double	c;
 	double	d;
 
-	a = acos(cub->dirX);
-	if (cub->dirY < 0)
+	a = acos(cub->dir_x);
+	if (cub->dir_y < 0)
 		a = -a;
 	b = a - M_PI / 2;
 	c = cos(b);
 	d = sin(b);
-	if (cub->map[(int)(cub->posX - c * 0.2)][(int)(cub->posY
+	if (cub->args->map[(int)(cub->pos_x - c * 0.2)][(int)(cub->pos_y
 			- d * 0.2)] != '1')
 	{
-		cub->posX -= c * 0.2;
-		cub->posY -= d * 0.2;
+		cub->pos_x -= c * 0.2;
+		cub->pos_y -= d * 0.2;
 	}
-	// if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)]
+	// if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
 	// 		!= '1')
-	// 	cub->posY += cub->dirY * 0.2;
+	// 	cub->pos_y += cub->dir_y * 0.2;
 	draw_img(cub);
 }
 
@@ -53,20 +53,20 @@ void	key_press_d(t_cub *cub)
 	double	c;
 	double	d;
 
-	a = acos(cub->dirX);
-	if (cub->dirY < 0)
+	a = acos(cub->dir_x);
+	if (cub->dir_y < 0)
 		a = -a;
 	b = a - M_PI / 2;
 	c = cos(b);
 	d = sin(b);
-	if (cub->map[(int)(cub->posX + c * 0.2)][(int)(cub->posY + d * 0.2)]
+	if (cub->args->map[(int)(cub->pos_x + c * 0.2)][(int)(cub->pos_y + d * 0.2)]
 			!= '1')
 	{
-		cub->posX += c * 0.2;
-		cub->posY += d * 0.2;
+		cub->pos_x += c * 0.2;
+		cub->pos_y += d * 0.2;
 	}
-	// if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)]
+	// if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
 			// != '1')
-		// cub->posY += cub->dirY * 0.2;
+		// cub->pos_y += cub->dir_y * 0.2;
 	draw_img(cub);
 }

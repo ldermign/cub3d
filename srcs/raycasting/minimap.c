@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 16:24:36 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/09 18:08:37 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:11:52 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	my_mlx_pixel_put_square(t_cub *cub, int x, int y, int color)
 	{
 		while (b < cub->a2)
 		{
-			dst = cub->addr + ((a + y) * cub->line_length
-					+ (b + x) * (cub->bpp / 8));
+			dst = cub->img_mlx->addr + ((a + y) * cub->img_mlx->size_line
+					+ (b + x) * (cub->img_mlx->bpp / 8));
 			*(unsigned int *)dst = color;
 			b++;
 		}
@@ -45,9 +45,9 @@ int	minimap1(t_cub *cub)
 	j = 0;
 	if (cub->y < 400 && cub->x < 400)
 		return (-1);
-	while (cub->map[i])
+	while (cub->args->map[i])
 	{
-		while (cub->map[i][j])
+		while (cub->args->map[i][j])
 			j++;
 		if (j > k)
 			k = j;
@@ -67,15 +67,15 @@ void	norm_minimap(t_cub *cub, int l, int k)
 
 	i = 0;
 	j = 0;
-	while (cub->map[i])
+	while (cub->args->map[i])
 	{
-		while (cub->map[i][j])
+		while (cub->args->map[i][j])
 		{
-			if (cub->map[i][j] == '1')
+			if (cub->args->map[i][j] == '1')
 				my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + cub->a2
 					* j, (l - cub->a2 * k) / 2 + i * cub->a2,
 					create_trgb(2, 0, 110, 90));
-			else if (cub->map[i][j] == '0')
+			else if (cub->args->map[i][j] == '0')
 				my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + cub->a2
 					* j, (l - cub->a2 * k) / 2 + i * cub->a2,
 					create_trgb(2, 160, 160, 160));
@@ -97,12 +97,12 @@ int	minimap2(t_cub *cub, int k)
 		l = cub->y / 2;
 	cub->a2 = l / k;
 	norm_minimap(cub, l, k);
-	my_mlx_pixel_put_square(cub, cub->a2 * cub->posY + (l - cub->a2 * k) / 2
-		+ (cub->a2 * cub->dirY) - cub->a2 / 2,
-		cub->a2 * cub->posX + (l - cub->a2 * k) / 2 + cub->dirX * cub->a2
+	my_mlx_pixel_put_square(cub, cub->a2 * cub->pos_y + (l - cub->a2 * k) / 2
+		+ (cub->a2 * cub->dir_y) - cub->a2 / 2,
+		cub->a2 * cub->pos_x + (l - cub->a2 * k) / 2 + cub->dir_x * cub->a2
 		- cub->a2 / 2, create_trgb(2, 160, 200, 200));
-	my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + (cub->a2 * cub->posY)
-		- cub->a2 / 2, (l - cub->a2 * k) / 2 + cub->posX * cub->a2
+	my_mlx_pixel_put_square(cub, (l - cub->a2 * k) / 2 + (cub->a2 * cub->pos_y)
+		- cub->a2 / 2, (l - cub->a2 * k) / 2 + cub->pos_x * cub->a2
 		- cub->a2 / 2, create_trgb(2, 65, 65, 65));
 	return (1);
 }

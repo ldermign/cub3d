@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/09 19:39:48 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:24:41 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,29 +63,29 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 	color = NULL;
 	width = 600;
 	height = 600;
-	txt.img = mlx_xpm_file_to_image(cub->mlx, path_to_text, &width,
+	txt.img = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
 	txt.text = (int *)mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
 			&txt.endian);
 	txt.addr = mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
 			&txt.endian);
 	color = get_color(&txt);
-	mlx_destroy_image(cub->mlx, txt.img);
+	mlx_destroy_image(cub->img_mlx->mlx, txt.img);
 	return (color);
 }
 
 void	get_texture(t_cub *cub, t_arg *arg)
 {
-	cub->texHeight = 600;
-	cub->texWidth = 600;
-	cub->txt_north = create_txt(arg->north, cub);
-	cub->txt_south = create_txt(arg->south, cub);
-	cub->txt_east = create_txt(arg->east, cub);
-	cub->txt_west = create_txt(arg->west, cub);
-	cub->txt_sprite = create_txt(arg->sprite, cub);
-	if (cub->txt_north == NULL || cub->txt_south == NULL
-		|| cub->txt_east == NULL || cub->txt_west == NULL
-		|| cub->txt_sprite == NULL)
+	cub->text.tex_height = 600;
+	cub->text.tex_width = 600;
+	cub->text.txt_north = create_txt(arg->north, cub);
+	cub->text.txt_south = create_txt(arg->south, cub);
+	cub->text.txt_east = create_txt(arg->east, cub);
+	cub->text.txt_west = create_txt(arg->west, cub);
+	cub->text.txt_sprite = create_txt(arg->sprite, cub);
+	if (cub->text.txt_north == NULL || cub->text.txt_south == NULL
+		|| cub->text.txt_east == NULL || cub->text.txt_west == NULL
+		|| cub->text.txt_sprite == NULL)
 	{
 		quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
 		quit_image(cub);
@@ -95,21 +95,13 @@ void	get_texture(t_cub *cub, t_arg *arg)
 
 void	recup_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 {
+	cub->args = arg;
 	cub->mini = -1;
-	cub->bpp = img->bpp;
-	cub->line_length = img->size_line;
-	cub->endian = img->endian;
-	cub->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
-	cub->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
+	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
+	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
 	cub->x = 600;
 	cub->y = 600;
-	// cub->east = arg->east;
-	// cub->west = arg->west;
-	// cub->south = arg->south;
-	// cub->north = arg->north;
-	// cub->sprite = arg->sprite;
-	cub->player = (char)arg->player;
-	cub->map = arg->map;
+	cub->img_mlx = img;
 	recup_pos(cub);
 	init_raycast(cub);
 }

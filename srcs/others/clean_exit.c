@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/09 19:40:00 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 15:54:50 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,18 @@ void	quit_image(t_cub *cub)
 	// free_tab_int(cub->txt_east);
 	// free_tab_int(cub->txt_west);
 	// free_tab_int(cub->txt_sprite);
-	free(cub->txt_north);
-	free(cub->txt_south);
-	free(cub->txt_east);
-	free(cub->txt_west);
-	free(cub->txt_sprite);
+	free(cub->text.txt_north);
+	free(cub->text.txt_south);
+	free(cub->text.txt_east);
+	free(cub->text.txt_west);
+	free(cub->text.txt_sprite);
 	if (cub)
 	{
-		if (cub->img)
-			mlx_destroy_image(cub->mlx, cub->img);
-		if (cub->mlx_ptr)
-			mlx_destroy_window(cub->mlx, cub->mlx_ptr);
-		mlx_destroy_display(cub->mlx);
-		free(cub->mlx);
+		if (cub->img_mlx->img)
+			mlx_destroy_image(cub->img_mlx->mlx, cub->img_mlx->img);
+		if (cub->img_mlx->win)
+			mlx_destroy_window(cub->img_mlx->mlx, cub->img_mlx->win);
+		mlx_destroy_display(cub->img_mlx->mlx);
+		free(cub->img_mlx->mlx);
 	}
 }

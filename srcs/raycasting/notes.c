@@ -78,7 +78,6 @@ UTILS
 ===============================================================================================================================================
 
 mlx_ptr == win
-line_lenght == size_line
 
 
 
@@ -106,3 +105,65 @@ AddressSanitizer:DEADLYSIGNAL
     #6 0x4ca93f in main /mnt/nfs/homes/ejahan/Desktop/last/srcs/main.c:125:2
     #7 0x7fee1a6dd0b2 in __libc_start_main /build/glibc-sMfBJT/glibc-2.31/csu/../csu/libc-start.c:308:16
     #8 0x41c5fd in _start (/mnt/nfs/homes/ejahan/Desktop/last/cub3d+0x41c5fd)
+
+
+
+
+
+
+
+
+
+
+===============================================================================================================================================
+AUTRE
+===============================================================================================================================================
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			*text;
+	int			width;
+	int			height;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			sky;
+	int			floor;
+}				t_mlx;
+
+typedef struct s_argmts
+{
+	int			tmp;
+	int			last;
+	int			len_fd;
+	int			flr_r;
+	int			flr_g;
+	int			flr_b;
+	int			ciel_r;
+	int			ciel_g;
+	int			ciel_b;
+	char		*north;
+	char		*south;
+	char		*west;
+	char		*east;
+	char		*sprite;
+	char		**fd;
+	char		**map;
+	int			player;
+	double		plrX;
+	double		plrY;
+}				t_arg;
+
+
+
+
+
+
+
+
+
+

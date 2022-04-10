@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:11:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/09 18:42:10 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:16:06 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,45 @@
 
 void	key_press_w(t_cub *cub)
 {
-	if (cub->map[(int)(cub->posX + cub->dirX * 0.2)][(int)(cub->posY)]
+	if (cub->args->map[(int)(cub->pos_x + cub->dir_x * 0.2)][(int)(cub->pos_y)]
 			!= '1')
-		cub->posX += cub->dirX * 0.2;
-	if (cub->map[(int)(cub->posX)][(int)(cub->posY + cub->dirY * 0.2)]
+		cub->pos_x += cub->dir_x * 0.2;
+	if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
 			!= '1')
-		cub->posY += cub->dirY * 0.2;
+		cub->pos_y += cub->dir_y * 0.2;
 	draw_img(cub);
 }
 
 void	key_press_left(t_cub *cub)
 {
-	cub->oldDirX = cub->dirX;
-	cub->dirX = cub->dirX * cos(0.1) - cub->dirY * sin(0.1);
-	cub->dirY = cub->oldDirX * sin(0.1) + cub->dirY * cos(0.1);
-	cub->oldPlaneX = cub->planeX;
-	cub->planeX = cub->planeX * cos(0.1) - cub->planeY * sin(0.1);
-	cub->planeY = cub->oldPlaneX * sin(0.1) + cub->planeY * cos(0.1);
+	cub->olddir_x = cub->dir_x;
+	cub->dir_x = cub->dir_x * cos(0.1) - cub->dir_y * sin(0.1);
+	cub->dir_y = cub->olddir_x * sin(0.1) + cub->dir_y * cos(0.1);
+	cub->oldplane_x = cub->plane_x;
+	cub->plane_x = cub->plane_x * cos(0.1) - cub->plane_y * sin(0.1);
+	cub->plane_y = cub->oldplane_x * sin(0.1) + cub->plane_y * cos(0.1);
 	draw_img(cub);
 }
 
 void	key_press_right(t_cub *cub)
 {
-	cub->oldDirX = cub->dirX;
-	cub->dirX = cub->dirX * cos(-0.1) - cub->dirY * sin(-0.1);
-	cub->dirY = cub->oldDirX * sin(-0.1) + cub->dirY * cos(-0.1);
-	cub->oldPlaneX = cub->planeX;
-	cub->planeX = cub->planeX * cos(-0.1) - cub->planeY * sin(-0.1);
-	cub->planeY = cub->oldPlaneX * sin(-0.1) + cub->planeY * cos(-0.1);
+	cub->olddir_x = cub->dir_x;
+	cub->dir_x = cub->dir_x * cos(-0.1) - cub->dir_y * sin(-0.1);
+	cub->dir_y = cub->olddir_x * sin(-0.1) + cub->dir_y * cos(-0.1);
+	cub->oldplane_x = cub->plane_x;
+	cub->plane_x = cub->plane_x * cos(-0.1) - cub->plane_y * sin(-0.1);
+	cub->plane_y = cub->oldplane_x * sin(-0.1) + cub->plane_y * cos(-0.1);
 	draw_img(cub);
 }
 
 void	key_press_s(t_cub *cub)
 {
-	if (cub->map[(int)(cub->posX - cub->dirX * 0.2)][(int)(cub->posY)]
+	if (cub->args->map[(int)(cub->pos_x - cub->dir_x * 0.2)][(int)(cub->pos_y)]
 			!= '1')
-		cub->posX -= cub->dirX * 0.2;
-	if (cub->map[(int)(cub->posX)][(int)(cub->posY - cub->dirY * 0.2)]
+		cub->pos_x -= cub->dir_x * 0.2;
+	if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y - cub->dir_y * 0.2)]
 			!= '1')
-		cub->posY -= cub->dirY * 0.2;
+		cub->pos_y -= cub->dir_y * 0.2;
 	draw_img(cub);
 }
 

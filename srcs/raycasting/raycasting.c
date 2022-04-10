@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/09 18:39:21 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:10:55 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ void	recup_pos(t_cub *cub)
 
 	i = 0;
 	j = 0;
-	while (cub->map[i])
+	while (cub->args->map[i])
 	{
 		j = 0;
-		while (cub->map[i][j])
+		while (cub->args->map[i][j])
 		{
-			if (cub->map[i][j] == cub->player)
+			if (cub->args->map[i][j] == cub->args->player)
 			{
-				cub->map[i][j] = '0';
-				cub->posX = (double)i + 0.5;
-				cub->posY = (double)j + 0.5;
-				printf("\033[1;30mposX :\033[0m %f\n", cub->posX);
-				printf("\033[1;30mposY :\033[0m %f\n\n", cub->posY);
+				cub->args->map[i][j] = '0';
+				cub->pos_x = (double)i + 0.5;
+				cub->pos_y = (double)j + 0.5;
+				printf("\033[1;30mposX :\033[0m %f\n", cub->pos_x);
+				printf("\033[1;30mposY :\033[0m %f\n\n", cub->pos_y);
 				return ;
 			}
 			j++;
@@ -41,25 +41,25 @@ void	recup_pos(t_cub *cub)
 
 void	step_sidedist(t_cub *cub)
 {
-	if (cub->raydirX < 0)
+	if (cub->raydir_x < 0)
 	{
-		cub->stepX = -1;
-		cub->sideDistX = (cub->posX - cub->mapX) * cub->deltaDistX;
+		cub->step_x = -1;
+		cub->side_dist_x = (cub->pos_x - cub->map_x) * cub->delta_dist_x;
 	}
 	else
 	{
-		cub->stepX = 1;
-		cub->sideDistX = (cub->mapX + 1.0 - cub->posX) * cub->deltaDistX;
+		cub->step_x = 1;
+		cub->side_dist_x = (cub->map_x + 1.0 - cub->pos_x) * cub->delta_dist_x;
 	}
-	if (cub->raydirY < 0)
+	if (cub->raydir_y < 0)
 	{
-		cub->stepY = -1;
-		cub->sideDistY = (cub->posY - cub->mapY) * cub->deltaDistY;
+		cub->step_y = -1;
+		cub->side_dist_y = (cub->pos_y - cub->map_y) * cub->delta_dist_y;
 	}
 	else
 	{
-		cub->stepY = 1;
-		cub->sideDistY = (cub->mapY + 1.0 - cub->posY) * cub->deltaDistY;
+		cub->step_y = 1;
+		cub->side_dist_y = (cub->map_y + 1.0 - cub->pos_y) * cub->delta_dist_y;
 	}
 }
 
@@ -67,20 +67,20 @@ void	check_wall(t_cub *cub)
 {
 	while (cub->hit == 0)
 	{
-		if ((cub->sideDistY <= 0 && cub->sideDistX >= 0)
-			|| cub->sideDistX < cub->sideDistY)
+		if ((cub->side_dist_y <= 0 && cub->side_dist_x >= 0)
+			|| cub->side_dist_x < cub->side_dist_y)
 		{
-			cub->sideDistX += cub->deltaDistX;
-			cub->mapX += cub->stepX;
+			cub->side_dist_x += cub->delta_dist_x;
+			cub->map_x += cub->step_x;
 			cub->side = 0;
 		}
 		else
 		{
-			cub->sideDistY += cub->deltaDistY;
-			cub->mapY += cub->stepY;
+			cub->side_dist_y += cub->delta_dist_y;
+			cub->map_y += cub->step_y;
 			cub->side = 1;
 		}
-		if (cub->map[cub->mapX][cub->mapY] == '1')
+		if (cub->args->map[cub->map_x][cub->map_y] == '1')
 			cub->hit = 1;
 	}
 }
@@ -89,27 +89,27 @@ void	raycast2(t_cub *cub, int color, int x)
 {
 	if (cub->side == 0)
 	{
-		cub->perpWallDist = ((double)cub->mapX - cub->posX
-				+ (1 - (double)cub->stepX) / 2) / cub->raydirX;
+		cub->perp_wall_dist = ((double)cub->map_x - cub->pos_x
+				+ (1 - (double)cub->step_x) / 2) / cub->raydir_x;
 	}
 	else
 	{
-		cub->perpWallDist = ((double)cub->mapY - cub->posY
-				+ (1 - (double)cub->stepY) / 2) / cub->raydirY;
+		cub->perp_wall_dist = ((double)cub->map_y - cub->pos_y
+				+ (1 - (double)cub->step_y) / 2) / cub->raydir_y;
 	}
-	cub->lineHeight = (int)(cub->y / cub->perpWallDist);
-	cub->drawStart = -(cub->lineHeight) / 2 + cub->y / 2;
-	if (cub->drawStart < 0)
-		cub->drawStart = 0;
-	cub->drawEnd = cub->lineHeight / 2 + cub->y / 2;
-	if (cub->drawEnd >= cub->y)
-		cub->drawEnd = cub->y - 1;
+	cub->lineheight = (int)(cub->y / cub->perp_wall_dist);
+	cub->drawstart = -(cub->lineheight) / 2 + cub->y / 2;
+	if (cub->drawstart < 0)
+		cub->drawstart = 0;
+	cub->drawend = cub->lineheight / 2 + cub->y / 2;
+	if (cub->drawend >= cub->y)
+		cub->drawend = cub->y - 1;
 	if (cub->side == 1)
 		color /= 2;
-	while (cub->drawStart <= cub->drawEnd)
+	while (cub->drawstart <= cub->drawend)
 	{
-		my_mlx_pixel_put(cub, x, cub->drawStart, color);
-		cub->drawStart++;
+		my_mlx_pixel_put(cub, x, cub->drawstart, color);
+		cub->drawstart++;
 	}
 }
 

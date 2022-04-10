@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:05:49 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/09 18:10:59 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/10 16:25:12 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	init_struct_arg(t_arg *data)
 	data->fd = NULL;
 	data->map = NULL;
 	data->player = 0;
-	data->plrX = 0;
-	data->plrY = 0;
+	data->plr_x = 0;
+	data->plr_y = 0;
 }

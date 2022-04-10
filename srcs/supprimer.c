@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   supprimer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 14:39:53 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 11:20:00 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/10 16:26:07 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	printf_struct_arg(t_arg data)
 	printf("sprite = \t[%s]\n", data.sprite);
 	printf("\nPLAYER = \n");
 	printf("player = \t%c\n", data.player);
-	printf("plrX = \t%f\n", data.plrX);
-	printf("plrY = \t%f\n", data.plrY);
+	printf("plrX = \t%f\n", data.plr_x);
+	printf("plrY = \t%f\n", data.plr_y);
 	int i = 0;
 	printf(GREEN"\n\t///\\\\\\FINAL MAP TO USE///\\\\\\\n\n");
 	while (data.map[i])
