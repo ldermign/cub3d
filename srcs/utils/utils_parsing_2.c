@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 14:49:10 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 11:17:51 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/11 11:00:50 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_texture(char *str)
 {
 	return (ft_int_strstr(str, "NO ")
 		|| ft_int_strstr(str, "SO ") || ft_int_strstr(str, "WE ")
-		|| ft_int_strstr(str, "EA ") || ft_int_strstr(str, "S "));
+		|| ft_int_strstr(str, "EA "));
 }
 
 int	ft_is_noting(char *str)
@@ -34,7 +34,7 @@ int	ft_is_noting(char *str)
 	return (!ft_int_strstr(str, "F ")
 		&& !ft_int_strstr(str, "C ") && !ft_int_strstr(str, "NO ")
 		&& !ft_int_strstr(str, "SO ") && !ft_int_strstr(str, "WE ")
-		&& !ft_int_strstr(str, "EA ") && !ft_int_strstr(str, "S "));
+		&& !ft_int_strstr(str, "EA "));
 }
 
 int	ft_is_either(char *str)
@@ -42,5 +42,5 @@ int	ft_is_either(char *str)
 	return (ft_int_strstr(str, "F ")
 		|| ft_int_strstr(str, "C ") || ft_int_strstr(str, "NO ")
 		|| ft_int_strstr(str, "SO ") || ft_int_strstr(str, "WE ")
-		|| ft_int_strstr(str, "EA ") || ft_int_strstr(str, "S "));
+		|| ft_int_strstr(str, "EA "));
 }

@@ -414,7 +414,7 @@ struct s_col_name mlx_col_name[] =
  { "darkgoldenrod1" , 0xffb90f },
  { "darkgoldenrod2" , 0xeead0e },
  { "darkgoldenrod3" , 0xcd950c },
- { "darkgoldenrod4" , 0x8b6508 },
+ { "darkgoldenrod4" , 0x8b9008 },
  { "rosybrown1" , 0xffc1c1 },
  { "rosybrown2" , 0xeeb4b4 },
  { "rosybrown3" , 0xcd9b9b },

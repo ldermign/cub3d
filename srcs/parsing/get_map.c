@@ -6,13 +6,13 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:46:18 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 14:58:36 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/11 11:00:08 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	check_space_sprite_and_plr_map(t_arg *data, char **map, char c)
+int	check_space_and_plr_map(t_arg *data, char **map, char c)
 {
 	int	i;
 	int	j;

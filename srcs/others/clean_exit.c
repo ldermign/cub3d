@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 15:54:50 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 11:01:43 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	quit_parsing(t_arg *data, char *str_err, int i, int place)
 	free(data->south);
 	free(data->west);
 	free(data->east);
-	free(data->sprite);
 	free_str(data->fd);
 	free_str(data->map);
 	return (-1);
@@ -70,7 +69,6 @@ void	quit_image(t_cub *cub)
 	free(cub->text.txt_south);
 	free(cub->text.txt_east);
 	free(cub->text.txt_west);
-	free(cub->text.txt_sprite);
 	if (cub)
 	{
 		if (cub->img_mlx->img)

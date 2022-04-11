@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:05:49 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 16:25:12 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 11:01:23 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	init_struct_arg(t_arg *data)
 	data->south = NULL;
 	data->west = NULL;
 	data->east = NULL;
-	data->sprite = NULL;
 	data->fd = NULL;
 	data->map = NULL;
 	data->player = 0;

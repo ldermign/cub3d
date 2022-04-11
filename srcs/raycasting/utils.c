@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 19:57:04 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 12:36:13 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	window(t_struct *all)
 	all->img.img = mlx_new_image(all->img.mlx, all->cub.x, all->cub.y);
 	all->img.addr = mlx_get_data_addr(all->img.img, &all->cub.img_mlx->bpp,
 			&all->cub.img_mlx->size_line, &all->cub.img_mlx->endian);
-	get_texture(&(all->cub), &(all->data));
+	// get_texture(&(all->cub), &(all->data));
 	draw_img(&all->cub);
 	mlx_hook(all->img.win, 2, 1L << 0, key_press, all);
 	mlx_hook(all->img.win, 17, 1L << 2, ft_quit, all);
@@ -58,7 +58,6 @@ void	print(t_cub cub)
 	printf("\033[1;34mWEST	\033[0m -> %s\n", cub.args->west);
 	printf("\033[1;34mSOUTH	\033[0m -> %s\n", cub.args->south);
 	printf("\033[1;34mNORTH	\033[0m -> %s\n", cub.args->north);
-	printf("\033[1;34mSPRITE	\033[0m -> %s\n", cub.args->sprite);
 	printf("\033[1;34mPLAYER	\033[0m -> %c\n", cub.args->player);
 	printf("\n\033[1;33mMAP : \033[0m\n\n");
 	while (cub.args->map[i] != NULL)

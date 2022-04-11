@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 19:57:55 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 11:00:08 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		check_textures(t_arg *data);
 
 int		gnl_mapcub(t_arg *data, char *arg);
 int		recup_map(t_arg *data);
-int		check_space_sprite_and_plr_map(t_arg *data, char **map, char c);
+int		check_space_and_plr_map(t_arg *data, char **map, char c);
 int		check_start_end_map(t_arg *data, char **map, int plr);
 int		check_interior_map(t_arg *data, char **map, int plr);
 void	ft_fill_map(t_arg *data, int len, int start, int larger);

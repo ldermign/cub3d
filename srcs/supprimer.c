@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   supprimer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 14:39:53 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 16:26:07 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 11:02:05 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	printf_struct_arg(t_arg data)
 	printf("south = \t[%s]\n", data.south);
 	printf("west = \t\t[%s]\n", data.west);
 	printf("east = \t\t[%s]\n", data.east);
-	printf("sprite = \t[%s]\n", data.sprite);
 	printf("\nPLAYER = \n");
 	printf("player = \t%c\n", data.player);
 	printf("plrX = \t%f\n", data.plr_x);

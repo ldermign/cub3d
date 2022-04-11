@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 19:56:35 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 13:38:31 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 
 	ft_bzero(&txt, sizeof(txt));
 	color = NULL;
-	width = 650;
-	height = 650;
+	width = 500;
+	height = 500;
 	txt.img = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
 	txt.text = (int *)mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
@@ -75,22 +75,23 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 }
 
 void	get_texture(t_cub *cub, t_arg *arg)
-{
-	cub->text.tex_height = 650;
-	cub->text.tex_width = 650;
-	cub->text.txt_north = create_txt(arg->north, cub);
-	cub->text.txt_south = create_txt(arg->south, cub);
-	cub->text.txt_east = create_txt(arg->east, cub);
-	cub->text.txt_west = create_txt(arg->west, cub);
-	cub->text.txt_sprite = create_txt(arg->sprite, cub);
-	if (cub->text.txt_north == NULL || cub->text.txt_south == NULL
-		|| cub->text.txt_east == NULL || cub->text.txt_west == NULL
-		|| cub->text.txt_sprite == NULL)
-	{
-		quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
-		quit_image(cub);
-		exit (1);
-	}
+{(void)arg;
+	// cub->text.tex_height = 500;
+	// cub->text.tex_width = 500;
+	// cub->text.txt_north = create_txt(arg->north, cub);
+	// cub->text.txt_south = create_txt(arg->south, cub);
+	// cub->text.txt_east = create_txt(arg->east, cub);
+	// cub->text.txt_west = create_txt(arg->west, cub);
+	// if (cub->text.txt_north == NULL || cub->text.txt_south == NULL
+	// 	|| cub->text.txt_east == NULL || cub->text.txt_west == NULL)
+	// {
+	// 	quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
+	// 	quit_image(cub);
+	// 	exit (1);
+	// }
+	for (int x = 0 ; x < 64 ; x++)
+	for (int y = 0 ; y < 64 ; y++)
+		cub->text.txt_test[64 * y + x] = 65536 * 192 * (x % 16 && y % 16);
 }
 
 int	main(int ac, char **ag)
@@ -100,6 +101,7 @@ int	main(int ac, char **ag)
 	if (parsing(ac, ag, &all.data) == -1)
 		exit (1);
 	init_cub(&all.cub, &(all.img), &all.data);
+	get_texture(&(all.cub), &(all.data));
 	print(all.cub);
 	window(&all);
 	return (0);

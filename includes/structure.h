@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 16:24:16 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 13:32:24 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_texture
 	int		*txt_south;
 	int		*txt_east;
 	int		*txt_west;
-	int		*txt_sprite;
+	int		txt_test[64 * 64];
 }				t_text;
 
 typedef struct s_argmts
@@ -68,7 +68,6 @@ typedef struct s_argmts
 	char		*south;
 	char		*west;
 	char		*east;
-	char		*sprite;
 	char		**fd;
 	char		**map;
 	int			player;
@@ -125,6 +124,7 @@ typedef struct s_structure
 	t_cub	cub;
 	t_arg	data;
 	t_mlx	img;
+	t_text	txt;
 }	t_struct;
 
 #endif

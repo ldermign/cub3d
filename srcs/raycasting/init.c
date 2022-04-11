@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:08:34 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 19:57:08 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 13:19:53 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 	cub->mini = 0;
 	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
 	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
-	cub->x = 650;
-	cub->y = 650;
+	cub->x = 500;	// w de la fenetre
+	cub->y = 500;	// h de la fenetre
 	cub->img_mlx = img;
 	recup_pos(cub);
 	init_raycast(cub);

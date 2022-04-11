@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 16:10:55 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/11 14:06:30 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,46 @@ void	raycast2(t_cub *cub, int color, int x)
 	cub->drawend = cub->lineheight / 2 + cub->y / 2;
 	if (cub->drawend >= cub->y)
 		cub->drawend = cub->y - 1;
+	
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+	int buffer[500][500];
+	//calculate value of wallX
+	//where exactly the wall was hit
+	double wallX;
+	if (cub->side == 0)
+		wallX = cub->pos_y + cub->perp_wall_dist * cub->raydir_y;
+	else
+		wallX = cub->pos_x + cub->perp_wall_dist * cub->raydir_x;
+	wallX -= floor((wallX));
+
+	//x coordinate on the texture
+	int texX = (int)(wallX * (double)64);
+	if (cub->side == 0 && cub->raydir_x > 0)
+		texX = 64 - texX - 1;
+	if (cub->side == 1 && cub->raydir_y < 0)
+		texX = 64 - texX - 1;
+
+	double step = 1.0 * 64 / cub->lineheight;
+
+	// Starting texture coordinate
+	double texPos = (cub->drawstart - cub->y / 2 + cub->lineheight / 2) * step;
+	for (int y = cub->drawstart ; y < cub->drawend ; y++)
+	{
+		// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
+		int texY = (int)texPos & (64 - 1);
+		texPos += step;
+
+		color = cub->text.txt_test[64 * texY + texX];
+		//make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
+
+		if (cub->side == 1)
+			color = (color >> 1) & 8355711;
+		buffer[y][x] = color;
+	}
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
 	if (cub->side == 1)
 		color /= 2;
 	while (cub->drawstart <= cub->drawend)

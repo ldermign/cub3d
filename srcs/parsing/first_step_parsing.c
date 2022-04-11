@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:12:31 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/08 13:22:00 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/11 11:00:26 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ int	check_map(t_arg *data)
 	data->player = return_player(data->map);
 	if (check_start_end_map(data, data->map, data->player) == -1
 		|| check_interior_map(data, data->map, data->player) == -1
-		|| check_space_sprite_and_plr_map(data, data->map, '0') == -1
-		|| check_space_sprite_and_plr_map(data, data->map, '2') == -1
-		|| check_space_sprite_and_plr_map(data, data->map, data->player) == -1)
+		|| check_space_and_plr_map(data, data->map, '0') == -1
+		|| check_space_and_plr_map(data, data->map, data->player) == -1)
 		return (-1);
 	get_position_player(data);
 	return (1);
@@ -71,8 +70,6 @@ int	recup_data(t_arg *data, char *str)
 		data->east = get_name_texture(data, str, "EA ");
 	else if (ft_int_strstr(str, "WE "))
 		data->west = get_name_texture(data, str, "WE ");
-	else if (ft_int_strstr(str, "S  "))
-		data->sprite = get_name_texture(data, str, "S ");
 	return (1);
 }
 
@@ -100,7 +97,7 @@ int	check_wrong_data_and_recup(t_arg *data)
 		|| data->ciel_r > 255 || data->ciel_g > 255 || data->ciel_b > 255)
 		return (quit_parsing(data, "Check floor or sky's color.\n", 0, 0));
 	if (data->north == NULL || data->south == NULL || data->east == NULL
-		|| data->west == NULL || data->sprite == NULL)
+		|| data->west == NULL)
 		return (quit_parsing(data, "It's missing some info.\n", 0, 0));
 	return (1);
 }
