@@ -1,14 +1,14 @@
 
- EA ./texture/brick_wall.xpm
- NO           ./texture/brick_wall.xpm
+ EA ./textures/AnyConv.com__redbrick.xpm
+ NO           ./textures/AnyConv.com__colorstone.xpm
 
 
 
- SO ./texture/brick_wall.xpm
+ SO ./textures/AnyConv.com__greystone.xpm
 
 
 C 80,            150        ,230
- WE        ./texture/brick_wall.xpm
+ WE        ./textures/AnyConv.com__purplestone.xpm
 
 
 

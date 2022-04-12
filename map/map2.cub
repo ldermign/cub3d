@@ -1,15 +1,10 @@
-
-
-EA ./textures/AnyConv.com__greystone.xpm
-WE ./textures/AnyConv.com__bluestone.xpm
-SO ./textures/AnyConv.com__purplestone.xpm
-NO ./textures/AnyConv.com__colorstone.xpm
-
-S ./textures/barrel.xpm
+EA ./texture/brick_wall.xpm
+NO ./texture/brick_wall.xpm
+SO ./texture/brick_wall.xpm
+WE ./texture/brick_wall.xpm
 
 C 100, 100, 100
 F 50, 50, 50
-
 
 11111111111111111111111111111111111111111111111111111111111111111111111111111111111
 1N000000000000000000000000000000000000000000000000000000000000000000000000000000001

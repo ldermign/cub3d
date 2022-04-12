@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/11 11:00:08 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:21:11 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int		ft_quit(t_struct *all);
 void	init2(t_cub *cub, int x);
 void	draw_background(t_cub *cub, int x, int y);
 void	draw_img(t_cub *cub);
+void	get_texture(t_cub *cub, t_arg *arg);
 void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg);
 void	init_raycast(t_cub *cub);
 void	init_raycast2(t_cub *cub);
@@ -130,5 +131,7 @@ void	recup_pos(t_cub *cub);
 void	window(t_struct *all);
 int		ft_loop(t_cub *cub);
 void	window(t_struct *all);
+
+int	*create_txt(char *path_to_text, t_cub *cub);
 
 #endif

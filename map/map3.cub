@@ -1,10 +1,7 @@
-
-
 EA ./texture/brick_wall.xpm
 NO ./texture/brick_wall.xpm
 SO ./texture/brick_wall.xpm
 WE ./texture/brick_wall.xpm
-S  ./texture/brick_wall.xpm
 
 
 C 100, 100, 100
@@ -30,5 +27,9 @@ F 50, 50, 50
 100000000000000000001
 100000000000000000001
 100000000000000000001
-1000000000000000000N1
+100000000000000000001
 111111111111111111111
+10001
+10N01
+10001
+11111

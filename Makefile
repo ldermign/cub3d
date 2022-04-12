@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
+#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/11 13:00:24 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/12 06:35:05 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS	=	./srcs/main.c \
 			./srcs/raycasting/init.c \
 			./srcs/raycasting/key_press.c \
 			./srcs/raycasting/key_press2.c \
-			./srcs/raycasting/draw.c 
+			./srcs/raycasting/draw.c \
+			./srcs/raycasting/texture.c 
 
 INCS	=	./includes/
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/11 12:36:13 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:50:18 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ int	ft_quit(t_struct *all)
 
 void	window(t_struct *all)
 {
+	static int a = 0;
+
 	all->img.mlx = mlx_init();
 	all->img.win
 		= mlx_new_window(all->img.mlx, all->cub.x, all->cub.y, "Cub3D");
 	all->img.img = mlx_new_image(all->img.mlx, all->cub.x, all->cub.y);
 	all->img.addr = mlx_get_data_addr(all->img.img, &all->cub.img_mlx->bpp,
 			&all->cub.img_mlx->size_line, &all->cub.img_mlx->endian);
-	// get_texture(&(all->cub), &(all->data));
+	if (a == 0)
+	{
+		get_texture(&(all->cub), &(all->data));
+		a = 1;
+	}
 	draw_img(&all->cub);
 	mlx_hook(all->img.win, 2, 1L << 0, key_press, all);
 	mlx_hook(all->img.win, 17, 1L << 2, ft_quit, all);

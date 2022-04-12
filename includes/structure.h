@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/11 13:32:24 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/12 06:05:22 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,19 @@ typedef struct s_data
 
 typedef struct s_texture
 {
-	char	texture[600][600];
+	// char	texture[500][500];
 	double	texpos;
-	int		texnum;
-	int		tex_x;
-	int		width_no;
-	int		height_no;
-	int		width_we;
-	int		height_we;
-	int		width_so;
-	int		height_so;
-	int		width_ea;
-	int		height_ea;
+	int		texnum;				//	carre de la map (1 ou 0)
+	int		tex_x;				//	coordonnee x de la texture
+	int		tex_y;
 	int		tex_width;
 	int		tex_height;
-	int		tex_y;
+	void	*text;
+	char	*text_data;
+	int		*texture_jsp;
+	int		w;
+	int		h;
+	int		size_line;
 	int		*txt_north;
 	int		*txt_south;
 	int		*txt_east;
@@ -93,6 +91,8 @@ typedef struct s_cub
 	double	perp_wall_dist;		//distance jusqu'au mur perpandiculaire au plan camera
 	double	olddir_x;
 	double	oldplane_x;
+	double	wall_x;				//	valeur ou le mur a ete
+	double	step;
 	int		step_x;				//dans quelle direction avancer
 	int		step_y;				//dans quelle direction avancer
 	int		map_x;				//dans quel carre on est

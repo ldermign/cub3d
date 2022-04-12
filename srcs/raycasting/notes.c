@@ -119,48 +119,78 @@ AddressSanitizer:DEADLYSIGNAL
 AUTRE
 ===============================================================================================================================================
 
-typedef struct s_data
+
+
+
+
+
+
+
+int	*get_color(t_mlx *txt)
 {
-	void		*mlx;
-	void		*win;
-	void		*img;
-	char		*addr;
-	int			*text;
-	int			width;
-	int			height;
-	int			bpp;
-	int			size_line;
-	int			endian;
-	int			sky;
-	int			floor;
-}				t_mlx;
+	int	x;
+	int	y;
+	int	*tab;
 
-typedef struct s_argmts
+	y = 0;
+	txt->size_line /= 4;
+	tab = malloc(sizeof(int) * (32 * 32));
+	if (tab == NULL)
+		return (NULL);
+	while (y < 32)
+	{
+		x = 0;
+		while (x < 32)
+		{
+			tab[y * 32 + x] = txt->text[y * txt->size_line + x];
+			x++;
+		}
+		y++;
+	}
+	txt->size_line *= 4;
+	return (tab);
+}
+
+int	*create_txt(char *path_to_text, t_cub *cub)
 {
-	int			tmp;
-	int			last;
-	int			len_fd;
-	int			flr_r;
-	int			flr_g;
-	int			flr_b;
-	int			ciel_r;
-	int			ciel_g;
-	int			ciel_b;
-	char		*north;
-	char		*south;
-	char		*west;
-	char		*east;
-	char		*sprite;
-	char		**fd;
-	char		**map;
-	int			player;
-	double		plrX;
-	double		plrY;
-}				t_arg;
+	int		width;
+	int		height;
+	int		*color;
+	t_mlx	txt;
 
+	ft_bzero(&txt, sizeof(txt));
+	color = NULL;
+	width = 600;
+	height = 600;
+	txt.img = mlx_xpm_file_to_image(cub->mlx, path_to_text, &width,
+			&height);
+	txt.text = (int *)mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
+			&txt.endian);
+	txt.addr = mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
+			&txt.endian);
+	color = get_color(&txt);
+	mlx_destroy_image(cub->mlx, txt.img);
+	return (color);
+}
 
-
-
+void	get_texture(t_cub *cub, t_arg *arg)
+{
+	cub->texHeight = 600;
+	cub->texWidth = 600;
+	cub->txt_north = create_txt(arg->north, cub);
+	cub->txt_south = create_txt(arg->south, cub);
+	cub->txt_east = create_txt(arg->east, cub);
+	cub->txt_west = create_txt(arg->west, cub);
+	cub->txt_sprite = create_txt(arg->sprite, cub);
+	if (cub->txt_north == NULL || cub->txt_south == NULL
+		|| cub->txt_east == NULL || cub->txt_west == NULL
+		|| cub->txt_sprite == NULL)
+	{
+		quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
+		quit_image(cub);
+		exit (1);
+	}
+}
 
 
 
