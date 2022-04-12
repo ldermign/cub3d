@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:40:28 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/12 14:05:07 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/12 14:06:12 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # include "cub3d_struct.h"
 # include "cub3d_fct.h"
 
+# define WIDTH 500
+# define HEIGHT 500
 # define KL_W 119
 # define KL_A 97
 # define KL_S 115

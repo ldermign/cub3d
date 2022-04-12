@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:26:01 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/12 06:41:38 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:07:04 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 
 	ft_bzero(&txt, sizeof(txt));
 	color = NULL;
-	width = 500;
-	height = 500;
+	width = WIDTH;
+	height = HEIGHT;
 	txt.img = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
 	txt.text = (int *)mlx_get_data_addr(txt.img, &txt.bpp, &txt.size_line,
@@ -62,8 +62,8 @@ int	*create_txt(char *path_to_text, t_cub *cub)
 void	get_texture(t_cub *cub, t_arg *arg)
 {
 	// (void)arg;
-	cub->text.tex_height = 500;
-	cub->text.tex_width = 500;
+	cub->text.tex_height = HEIGHT;
+	cub->text.tex_width = WIDTH;
 	cub->text.texture_jsp = create_txt(arg->north, cub);
 	cub->text.txt_north = create_txt(arg->north, cub);
 	cub->text.txt_south = create_txt(arg->south, cub);

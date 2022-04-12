@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/12 06:49:38 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:06:48 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	check_wall(t_cub *cub)
 	
 // // /////////////////////////////////////////////////////////////////////////////////////////
 
-// 	int buffer[500][500];
+// 	int buffer[WIDTH][HEIGHT];
 // 	//calculate value of wallX
 // 	//where exactly the wall was hit
 // 	double wallX;
