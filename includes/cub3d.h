@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:40:28 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 11:10:05 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/12 14:05:07 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
-# include "structure.h"
+# include "cub3d_struct.h"
 # include "cub3d_fct.h"
 
 # define KL_W 119

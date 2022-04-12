@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/12 06:05:22 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/12 14:04:43 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURE_H
-# define STRUCTURE_H
+#ifndef CUB3D_STRUCT_H
+# define CUB3D_STRUCT_H
 
 typedef struct s_data
 {
