@@ -182,14 +182,14 @@ void	get_texture(t_cub *cub, t_arg *arg)
 	cub->txt_east = create_txt(arg->east, cub);
 	cub->txt_west = create_txt(arg->west, cub);
 	cub->txt_sprite = create_txt(arg->sprite, cub);
-	if (cub->txt_north == NULL || cub->txt_south == NULL
-		|| cub->txt_east == NULL || cub->txt_west == NULL
-		|| cub->txt_sprite == NULL)
-	{
-		quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
-		quit_image(cub);
-		exit (1);
-	}
+	// if (cub->txt_north == NULL || cub->txt_south == NULL
+	// 	|| cub->txt_east == NULL || cub->txt_west == NULL
+	// 	|| cub->txt_sprite == NULL)
+	// {
+	// 	quit_parsing(arg, "Something's wrong with malloc.\n", 0, 0);
+	// 	quit_image(cub);
+	// 	exit (1);
+	// }
 }
 
 

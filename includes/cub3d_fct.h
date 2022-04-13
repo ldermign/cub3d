@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/12 06:21:11 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 14:23:51 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,5 @@ void	recup_pos(t_cub *cub);
 void	window(t_struct *all);
 int		ft_loop(t_cub *cub);
 void	window(t_struct *all);
-
-int	*create_txt(char *path_to_text, t_cub *cub);
 
 #endif

@@ -1,14 +1,14 @@
 
- EA ./textures/AnyConv.com__redbrick.xpm
- NO           ./textures/AnyConv.com__colorstone.xpm
+ EA ./textures/64.xpm
+ NO           ./textures/128.xpm
 
 
 
- SO ./textures/AnyConv.com__greystone.xpm
+ SO ./textures/32.xpm
 
 
 C 80,            150        ,230
- WE        ./textures/AnyConv.com__purplestone.xpm
+ WE        ./textures/256.xpm
 
 
 

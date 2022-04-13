@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structure.h                                        :+:      :+:    :+:   */
+/*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/12 14:04:43 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:47:02 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,19 @@ typedef struct s_data
 
 typedef struct s_texture
 {
-	// char	texture[500][500];
 	double	texpos;
 	int		texnum;				//	carre de la map (1 ou 0)
 	int		tex_x;				//	coordonnee x de la texture
 	int		tex_y;
 	int		tex_width;
 	int		tex_height;
-	void	*text;
 	char	*text_data;
 	int		*texture_jsp;
 	int		w;
 	int		h;
 	int		size_line;
-	int		*txt_north;
-	int		*txt_south;
-	int		*txt_east;
-	int		*txt_west;
-	int		txt_test[64 * 64];
+	int		*text;
+	void	*img_text;
 }				t_text;
 
 typedef struct s_argmts
@@ -106,6 +101,7 @@ typedef struct s_cub
 	int		y;					//y ecran
 	int		a2;					//largeur carre
 	int		mini;
+	t_text	all_txt[4];
 	t_text	text;
 	t_mlx	*img_mlx;
 	t_arg	*args;

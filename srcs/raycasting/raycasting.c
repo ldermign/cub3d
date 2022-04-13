@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/12 14:06:48 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:33:49 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,10 +153,25 @@ void	check_wall(t_cub *cub)
 // 	}
 // }
 
+int		get_which_texture(t_cub *cub)
+{
+	int	text;
 
+	text = 0;
+	if (cub->delta_dist_x == 1)
+		text = 0;	//	north
+	else if (cub->delta_dist_x == -1)
+		text = 1;	//	south
+	else if (cub->delta_dist_y == 1)
+		text = 2;	//	east
+	else if (cub->delta_dist_y == -1)
+		text = 3;	//	west
+	return (text);
+}
 
 void	raycast2(t_cub *cub, int color, int x)
 {
+	// int	test = 0;
 	int y;
 
 	if (cub->side == 0)
@@ -177,30 +192,34 @@ void	raycast2(t_cub *cub, int color, int x)
 	if (cub->drawend >= cub->y)
 		cub->drawend = cub->y - 1;
 ////////////////////////////////////////////////////////////////////////////////////////////
-	cub->text.texnum = cub->args->map[cub->map_x][cub->map_y];
+	// cub->text.texnum = get_which_texture(cub);
+	// cub->text.texnum = cub->args->map[cub->map_x][cub->map_y] - 1;
+	cub->text.texnum = 1;
 	if (cub->side == 0)
 		cub->wall_x = cub->pos_y + cub->perp_wall_dist * cub->raydir_y;
 	else
 		cub->wall_x = cub->pos_x + cub->perp_wall_dist * cub->raydir_x;
 	cub->wall_x -= floor((cub->wall_x));
-	cub->text.tex_x = (int)(cub->wall_x * (double)64);
+	cub->text.tex_x = (int)(cub->wall_x * (double)cub->all_txt[cub->text.texnum].tex_width);
 	if (cub->side == 0 && cub->raydir_x > 0)
-		cub->text.tex_x = 64 - cub->text.tex_x - 1;
+		cub->text.tex_x = cub->all_txt[cub->text.texnum].tex_width - cub->text.tex_x - 1;
 	if (cub->side == 1 && cub->raydir_y < 0)
-		cub->text.tex_x = 64 - cub->text.tex_x - 1;
-	cub->step = 1.0 * 64 / cub->lineheight;
+		cub->text.tex_x = cub->all_txt[cub->text.texnum].tex_width - cub->text.tex_x - 1;
+	cub->step = 1.0 * cub->all_txt[cub->text.texnum].tex_height / cub->lineheight;
 	cub->text.texpos = (cub->drawstart - cub->y / 2 + cub->lineheight / 2) * cub->step;
 	y = cub->drawstart;
 	while (y <= cub->drawend)
 	{
-		cub->text.tex_y = (int)cub->text.texpos & (64 - 1);
+		cub->text.tex_y = (int)cub->text.texpos & (cub->all_txt[cub->text.texnum].tex_height - 1);
 		cub->text.texpos += cub->step;
-		color = cub->text.texture_jsp[64 * cub->text.tex_y + cub->text.tex_x];
+		color = cub->all_txt[cub->text.texnum].text[cub->all_txt[cub->text.texnum].tex_height * cub->text.tex_y + cub->text.tex_x];
 		if (cub->side == 1)
 			color = (color >> 1) & 8355711;
 		my_mlx_pixel_put(cub, x, y, color);
 		y++;
 	}
+
+
 }
 
 void	raycast1(t_cub *cub)

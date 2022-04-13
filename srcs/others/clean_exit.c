@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/11 22:10:59 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 14:46:53 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,10 @@ int	quit_parsing(t_arg *data, char *str_err, int i, int place)
 
 void	quit_image(t_cub *cub)
 {
-	// free_tab_int(cub->txt_north);
-	// free_tab_int(cub->txt_south);
-	// free_tab_int(cub->txt_east);
-	// free_tab_int(cub->txt_west);
-	// free_tab_int(cub->txt_sprite);
-	free(cub->text.txt_north);
-	free(cub->text.txt_south);
-	free(cub->text.txt_east);
-	free(cub->text.txt_west);
+	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[0].img_text);
+	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[1].img_text);
+	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[2].img_text);
+	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[3].img_text);
 	if (cub)
 	{
 		if (cub->img_mlx->img)
