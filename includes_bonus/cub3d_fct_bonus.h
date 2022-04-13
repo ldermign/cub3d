@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_fct.h                                        :+:      :+:    :+:   */
+/*   cub3d_fct_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:12:55 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:45:42 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_FCT_H
-# define CUB3D_FCT_H
+#ifndef CUB3D_FCT_BONUS_H
+# define CUB3D_FCT_BONUS_H
 
 /*
 **	CHECK PARSING
@@ -125,6 +125,9 @@ void	init_raycast2(t_cub *cub);
 int		key_press(int key_code, t_struct *all);
 void	key_press_a(t_cub *cub);
 void	key_press_d(t_cub *cub);
+void	key_press_m(t_cub *cub);
+int		minimap1(t_cub *cub);
+int		minimap2(t_cub *cub, int k);
 void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
 void	print(t_cub cub);
 void	put_line(t_cub *cub, int color, int x);

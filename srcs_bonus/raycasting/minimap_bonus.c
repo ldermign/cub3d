@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 16:24:36 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 19:37:01 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:40:34 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes_bonus/cub3d_bonus.h"
 
 void	my_mlx_pixel_put_square(t_cub *cub, int x, int y, int color)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:55:13 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:12:11 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:40:19 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes_bonus/cub3d_bonus.h"
 
 void	draw_background(t_cub *cub, int x, int y)
 {
@@ -44,6 +44,8 @@ void	draw_img(t_cub *cub)
 {
 	draw_background(cub, cub->x, cub->y);
 	raycast1(cub);
+	if (cub->mini == 1)
+		minimap1(cub);
 	mlx_put_image_to_window(cub->img_mlx->mlx, cub->img_mlx->win,
 		cub->img_mlx->img, 0, 0);
 }

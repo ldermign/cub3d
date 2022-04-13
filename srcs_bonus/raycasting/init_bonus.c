@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:08:34 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:50:20 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:40:23 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes_bonus/cub3d_bonus.h"
 
 void	init_raycast2(t_cub *cub)
 {
@@ -71,6 +71,7 @@ void	init2(t_cub *cub, int x)
 void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 {
 	cub->args = arg;
+	cub->mini = 0;
 	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
 	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
 	cub->x = WIDTH;

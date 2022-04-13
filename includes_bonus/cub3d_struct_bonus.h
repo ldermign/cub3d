@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_struct.h                                     :+:      :+:    :+:   */
+/*   cub3d_struct_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:49:45 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:46:34 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_STRUCT_H
-# define CUB3D_STRUCT_H
+#ifndef CUB3D_STRUCT_BONUS_H
+# define CUB3D_STRUCT_BONUS_H
 
 typedef struct s_data
 {
@@ -97,8 +97,10 @@ typedef struct s_cub
 	int		lineheight;
 	int		hit;
 	int		side;
-	int		x;
-	int		y;
+	int		x;					
+	int		y;					
+	int		a2;
+	int		mini;
 	t_text	all_txt[4];
 	t_text	text;
 	t_mlx	*img_mlx;

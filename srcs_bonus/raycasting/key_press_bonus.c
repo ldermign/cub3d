@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_press.c                                        :+:      :+:    :+:   */
+/*   key_press_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:11:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:14:03 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:40:27 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes_bonus/cub3d_bonus.h"
 
 void	key_press_w(t_cub *cub)
 {
@@ -60,6 +60,8 @@ int	key_press(int key_code, t_struct *all)
 {
 	if (key_code == KL_ESC)
 		ft_quit(all);
+	if (key_code == KL_M)
+		key_press_m(&(all->cub));
 	if (key_code == KL_A)
 		key_press_a(&(all->cub));
 	if (key_code == KL_S)

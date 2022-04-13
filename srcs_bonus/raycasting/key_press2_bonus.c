@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_press2.c                                       :+:      :+:    :+:   */
+/*   key_press2_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 22:40:45 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:13:04 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:40:30 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes_bonus/cub3d_bonus.h"
+
+void	key_press_m(t_cub *cub)
+{
+	if (cub->mini == 1)
+		cub->mini = 0;
+	else
+		cub->mini = 1;
+	draw_img(cub);
+}
 
 void	key_press_a(t_cub *cub)
 {
