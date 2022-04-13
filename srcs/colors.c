@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:24:09 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/10 20:09:01 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 19:40:50 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,4 @@ int	get_b(int color)
 int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color)
-{
-	t_color	clr;
-
-	if (x < 0 || y < 0)
-		return ;
-	clr.t = get_t(color);
-	clr.r = get_r(color);
-	clr.g = get_g(color);
-	clr.b = get_b(color);
-	cub->img_mlx->addr[(y * cub->img_mlx->size_line
-			+ x * (cub->img_mlx->bpp / 8))] = clr.b;
-	cub->img_mlx->addr[(y * cub->img_mlx->size_line
-			+ x * (cub->img_mlx->bpp / 8)) + 1] = clr.g;
-	cub->img_mlx->addr[(y * cub->img_mlx->size_line
-			+ x * (cub->img_mlx->bpp / 8)) + 2] = clr.r;
-	cub->img_mlx->addr[(y * cub->img_mlx->size_line
-			+ x * (cub->img_mlx->bpp / 8)) + 3] = clr.t;
 }

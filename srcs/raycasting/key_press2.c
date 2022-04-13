@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 22:40:45 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/10 20:02:35 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 19:43:16 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ void	key_press_a(t_cub *cub)
 		cub->pos_x -= c * 0.2;
 		cub->pos_y -= d * 0.2;
 	}
-	// if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
-	// 		!= '1')
-	// 	cub->pos_y += cub->dir_y * 0.2;
 	draw_img(cub);
 }
 
@@ -65,8 +62,5 @@ void	key_press_d(t_cub *cub)
 		cub->pos_x += c * 0.2;
 		cub->pos_y += d * 0.2;
 	}
-	// if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
-			// != '1')
-		// cub->pos_y += cub->dir_y * 0.2;
 	draw_img(cub);
 }

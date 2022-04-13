@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:04:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/12 06:50:18 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 19:30:16 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_quit(t_struct *all)
 
 void	window(t_struct *all)
 {
-	static int a = 0;
+	static int	a = 0;
 
 	all->img.mlx = mlx_init();
 	all->img.win

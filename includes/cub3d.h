@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:40:28 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 11:37:31 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 20:03:50 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # include "cub3d_struct.h"
 # include "cub3d_fct.h"
 
-# define WIDTH 1000
-# define HEIGHT 850
+# define WIDTH 600
+# define HEIGHT 650
 # define KL_W 119
 # define KL_A 97
 # define KL_S 115

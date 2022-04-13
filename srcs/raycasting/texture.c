@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:26:01 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 14:56:47 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 19:57:32 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	create_txt(char *path_to_text, t_cub *cub, t_text *text)
+void	create_txt(char *path_to_text, t_cub *cub, t_text *t)
 {
 	int		width;
 	int		height;
@@ -21,12 +21,12 @@ void	create_txt(char *path_to_text, t_cub *cub, t_text *text)
 	ft_bzero(&txt, sizeof(txt));
 	width = 0;
 	height = 0;
-	text->img_text = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
+	t->img_text = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
-	text->text = (int *)mlx_get_data_addr(text->img_text, &txt.bpp, &txt.size_line,
+	t->text = (int *)mlx_get_data_addr(t->img_text, &txt.bpp, &txt.size_line,
 			&txt.endian);
-	text->tex_width = width;
-	text->tex_height = height;
+	t->tex_width = width;
+	t->tex_height = height;
 }
 
 void	get_texture(t_cub *cub, t_arg *arg)
@@ -43,3 +43,26 @@ void	get_texture(t_cub *cub, t_arg *arg)
 		exit (1);
 	}
 }
+
+int	get_which_texture(t_cub *cub)
+{
+	int	text;
+
+	text = 0;
+	if (cub->side == 0 && cub->raydir_x < 0)
+		text = 0;
+	if (cub->side == 0 && cub->raydir_x >= 0)
+		text = 1;
+	if (cub->side == 1 && cub->raydir_y < 0)
+		text = 2;
+	if (cub->side == 1 && cub->raydir_y >= 0)
+		text = 3;
+	return (text);
+}
+
+/*
+**	0 == NORTH
+**	1 == SOUTH
+**	2 == EAST
+**	3 == WEST
+*/

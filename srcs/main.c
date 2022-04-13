@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:37:45 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/12 05:45:24 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/13 19:28:19 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int ac, char **ag)
 	if (parsing(ac, ag, &all.data) == -1)
 		exit (1);
 	init_cub(&all.cub, &(all.img), &all.data);
-	// get_texture(&(all.cub), &(all.data));
 	print(all.cub);
 	window(&all);
 	return (0);

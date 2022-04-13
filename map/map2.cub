@@ -1,7 +1,7 @@
-EA ./texture/brick_wall.xpm
-NO ./texture/brick_wall.xpm
-SO ./texture/brick_wall.xpm
-WE ./texture/brick_wall.xpm
+EA ./textures/64.xpm
+NO ./textures/128.xpm
+SO ./textures/32.xpm
+WE ./textures/256.xpm
 
 C 100, 100, 100
 F 50, 50, 50

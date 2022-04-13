@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 14:47:02 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 19:54:28 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_data
 typedef struct s_texture
 {
 	double	texpos;
-	int		texnum;				//	carre de la map (1 ou 0)
-	int		tex_x;				//	coordonnee x de la texture
+	int		texnum;
+	int		tex_x;
 	int		tex_y;
 	int		tex_width;
 	int		tex_height;
@@ -70,36 +70,36 @@ typedef struct s_argmts
 
 typedef struct s_cub
 {
-	double	pos_x;				//position x du joueur
-	double	pos_y;				//position y du joueur
-	double	dir_x;				//vecteur de direction initiale
-	double	dir_y;				//vecteur de direction initiale
-	double	plane_x;			//j'sais plus
-	double	plane_y;			//j'sais plus
-	double	camera_x;			//abscisse de camera
-	double	raydir_x;			//calcul de direction x du rayon
-	double	raydir_y;			//calcul de direction y du rayon
-	double	side_dist_x;		//longueur entre position actuelle et prochain x ou y
-	double	side_dist_y;		//longueur entre position actuelle et prochain x ou y
-	double	delta_dist_x;		//longueur entre cote x ou y jusqu'a autre cote x ou y
-	double	delta_dist_y;		//longueur entre cote x ou y jusqu'a autre cote x ou y
-	double	perp_wall_dist;		//distance jusqu'au mur perpandiculaire au plan camera
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
 	double	olddir_x;
 	double	oldplane_x;
-	double	wall_x;				//	valeur ou le mur a ete
+	double	wall_x;
 	double	step;
-	int		step_x;				//dans quelle direction avancer
-	int		step_y;				//dans quelle direction avancer
-	int		map_x;				//dans quel carre on est
-	int		map_y;				//dans quel carre on est
-	int		drawstart;			//plus haut pixel a afficher
-	int		drawend;			//plus bas pixel a afficher
+	int		step_x;
+	int		step_y;
+	int		map_x;
+	int		map_y;
+	int		drawstart;
+	int		drawend;
 	int		lineheight;
 	int		hit;
 	int		side;
-	int		x;					//x ecran
-	int		y;					//y ecran
-	int		a2;					//largeur carre
+	int		x;					
+	int		y;					
+	int		a2;
 	int		mini;
 	t_text	all_txt[4];
 	t_text	text;

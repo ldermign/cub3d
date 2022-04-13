@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_fct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:37:27 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 14:23:51 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 20:14:58 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ int		is_map(char *str);
 */
 
 int		create_trgb(int t, int r, int g, int b);
-// void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+int		get_t(int color);
+int		get_r(int color);
+int		get_g(int color);
+int		get_b(int color);
 
 /*
 **  UTILS MAP
@@ -115,6 +118,7 @@ void	init2(t_cub *cub, int x);
 void	draw_background(t_cub *cub, int x, int y);
 void	draw_img(t_cub *cub);
 void	get_texture(t_cub *cub, t_arg *arg);
+int		get_which_texture(t_cub *cub);
 void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg);
 void	init_raycast(t_cub *cub);
 void	init_raycast2(t_cub *cub);
@@ -126,10 +130,9 @@ int		minimap1(t_cub *cub);
 int		minimap2(t_cub *cub, int k);
 void	my_mlx_pixel_put(t_cub *cub, int x, int y, int color);
 void	print(t_cub cub);
+void	put_line(t_cub *cub, int color, int x);
 void	raycast1(t_cub *cub);
 void	recup_pos(t_cub *cub);
-void	window(t_struct *all);
-int		ft_loop(t_cub *cub);
 void	window(t_struct *all);
 
 #endif

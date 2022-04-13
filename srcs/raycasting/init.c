@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:08:34 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/12 14:06:33 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/13 20:15:18 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,36 @@ void	init_cub(t_cub *cub, t_mlx *img, t_arg *arg)
 	cub->mini = 0;
 	cub->args->c = create_trgb(21, arg->ciel_r, arg->ciel_g, arg->ciel_b);
 	cub->args->f = create_trgb(21, arg->flr_r, arg->flr_g, arg->flr_b);
-	cub->x = WIDTH;	// w de la fenetre
-	cub->y = HEIGHT;	// h de la fenetre
+	cub->x = WIDTH;
+	cub->y = HEIGHT;
 	cub->img_mlx = img;
 	recup_pos(cub);
 	init_raycast(cub);
+}
+
+void	recup_pos(t_cub *cub)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (cub->args->map[i])
+	{
+		j = 0;
+		while (cub->args->map[i][j])
+		{
+			if (cub->args->map[i][j] == cub->args->player)
+			{
+				cub->args->map[i][j] = '0';
+				cub->pos_x = (double)i + 0.5;
+				cub->pos_y = (double)j + 0.5;
+				printf("\033[1;30mposX :\033[0m %f\n", cub->pos_x);
+				printf("\033[1;30mposY :\033[0m %f\n\n", cub->pos_y);
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
 }
