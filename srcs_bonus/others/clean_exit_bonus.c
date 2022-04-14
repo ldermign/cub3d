@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:39:23 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:39:51 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:27:57 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,14 @@ int	quit_parsing(t_arg *data, char *str_err, int i, int place)
 
 void	quit_image(t_cub *cub)
 {
-	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[0].img_text);
-	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[1].img_text);
-	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[2].img_text);
-	mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[3].img_text);
+	if (cub->all_txt[0].img_text != NULL)
+		mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[0].img_text);
+	if (cub->all_txt[1].img_text != NULL)
+		mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[1].img_text);
+	if (cub->all_txt[2].img_text != NULL)
+		mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[2].img_text);
+	if (cub->all_txt[3].img_text != NULL)
+		mlx_destroy_image(cub->img_mlx->mlx, cub->all_txt[3].img_text);
 	if (cub)
 	{
 		if (cub->img_mlx->img)
