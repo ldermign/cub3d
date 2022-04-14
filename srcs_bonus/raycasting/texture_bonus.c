@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:26:01 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:40:40 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:22:44 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	create_txt(char *path_to_text, t_cub *cub, t_text *t)
 	height = 0;
 	t->img_text = mlx_xpm_file_to_image(cub->img_mlx->mlx, path_to_text, &width,
 			&height);
+	if (t->img_text == NULL)
+		return ;
 	t->text = (int *)mlx_get_data_addr(t->img_text, &txt.bpp, &txt.size_line,
 			&txt.endian);
 	t->tex_width = width;
