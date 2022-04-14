@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:11:38 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 22:14:03 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 07:41:40 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 void	key_press_w(t_cub *cub)
 {
 	if (cub->args->map[(int)(cub->pos_x + cub->dir_x * 0.2)][(int)(cub->pos_y)]
-			!= '1')
+			!= '1' && cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y
+			+ cub->dir_y * 0.2)] != '1')
+	{
 		cub->pos_x += cub->dir_x * 0.2;
-	if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y + cub->dir_y * 0.2)]
-			!= '1')
 		cub->pos_y += cub->dir_y * 0.2;
+	}
 	draw_img(cub);
 }
 
@@ -48,11 +49,12 @@ void	key_press_right(t_cub *cub)
 void	key_press_s(t_cub *cub)
 {
 	if (cub->args->map[(int)(cub->pos_x - cub->dir_x * 0.2)][(int)(cub->pos_y)]
-			!= '1')
+			!= '1' && cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y
+			- cub->dir_y * 0.2)] != '1')
+	{
 		cub->pos_x -= cub->dir_x * 0.2;
-	if (cub->args->map[(int)(cub->pos_x)][(int)(cub->pos_y - cub->dir_y * 0.2)]
-			!= '1')
 		cub->pos_y -= cub->dir_y * 0.2;
+	}
 	draw_img(cub);
 }
 
