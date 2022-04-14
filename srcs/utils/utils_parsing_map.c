@@ -6,7 +6,7 @@
 /*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 14:54:13 by ldermign          #+#    #+#             */
-/*   Updated: 2021/04/25 17:49:22 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/14 10:44:35 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	size_tab_char(char **tab)
 
 int	cara_in_map(int c)
 {
-	return (c == '0' || c == '1' || c == '2' || c == 'N' || c == 'S'
+	return (c == '0' || c == '1' || c == 'N' || c == 'S'
 		|| c == 'W' || c == 'E' || c == ' ');
 }
 

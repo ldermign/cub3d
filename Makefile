@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
+#    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/14 03:06:58 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/14 10:16:55 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g3 -I ${INCS} -I ./mlx/ -Ofast #-fsanitize=addre
 CFLAGS_BONUS	=	-Wall -Wextra -Werror -g3 -I ${INCS_BONUS} -I ./mlx/ -Ofast #-fsanitize=address
 
 MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
-
+# 
 RM		=	rm -rf
 
 all:		${NAME}

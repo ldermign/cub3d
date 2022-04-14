@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:32:54 by ejahan            #+#    #+#             */
-/*   Updated: 2022/04/13 20:15:25 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 09:51:18 by ldermign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	raycast3(t_cub *cub, int color, int x)
 void	raycast2(t_cub *cub, int color, int x)
 {
 	if (cub->side == 0)
-		cub->perp_wall_dist = ((double)cub->map_x - cub->pos_x
+	cub->perp_wall_dist = ((double)cub->map_x - cub->pos_x
 				+ (1 - (double)cub->step_x) / 2) / cub->raydir_x;
 	else
 		cub->perp_wall_dist = ((double)cub->map_y - cub->pos_y
