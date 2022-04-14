@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_reso_floor_sky.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:03:46 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/06 14:58:07 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/14 13:12:47 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	check_floor_sky(t_arg *data, char *str)
 	|| check_space_in_split(data, tmp[1]) == -1
 	|| check_space_in_split(data, tmp[2]) == -1
 	|| check_infos_inside_split(data, tmp) == -1)
+	{
+		free_str(tmp);
 		return (-1);
+	}
 	free_str(tmp);
 	return (1);
 }

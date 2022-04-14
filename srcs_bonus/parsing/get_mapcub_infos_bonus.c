@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 17:15:51 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:40:12 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:10:36 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	get_floor(t_arg *data, char *str)
 	int	i;
 
 	i = 0;
-	check_floor_sky(data, str);
+	if (check_floor_sky(data, str) == -1)
+		return (-1);
 	if (data->flr_r != 0 || data->flr_g != 0 || data->flr_b != 0)
 		return (quit_parsing(data,
 				"You've duplicated info about the floor.\n", 0, 0));
@@ -42,7 +43,8 @@ int	get_sky(t_arg *data, char *str)
 	int	i;
 
 	i = 0;
-	check_floor_sky(data, str);
+	if (check_floor_sky(data, str) == -1)
+		return (-1);
 	if (data->ciel_r != 0 || data->ciel_g != 0 || data->ciel_b != 0)
 		return (quit_parsing(data,
 				"You've duplicated info about the sky.\n", 0, 0));
@@ -81,6 +83,7 @@ char	*get_name_texture(t_arg *data, char *new_text, char *needle)
 		|| text[len - 2] != 'p' || text[len - 3] != 'x'
 		|| text[len - 4] != '.')
 	{
+		free(text);
 		quit_parsing(data, "Check name of texture.\n", 0, 0);
 		return (NULL);
 	}

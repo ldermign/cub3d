@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:12:31 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/14 02:58:37 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:06:42 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int	recup_data(t_arg *data, char *str)
 		data->check_c = 1;
 		return (get_sky(data, str));
 	}
-	else if (ft_int_strstr(str, "NO ") == 1)
+	else if (ft_int_strstr(str, "NO ") && data->north == NULL)
 		data->north = get_name_texture(data, str, "NO ");
-	else if (ft_int_strstr(str, "SO ") == 1)
+	else if (ft_int_strstr(str, "SO ") && data->south == NULL)
 		data->south = get_name_texture(data, str, "SO ");
-	else if (ft_int_strstr(str, "EA "))
+	else if (ft_int_strstr(str, "EA ") && data->east == NULL)
 		data->east = get_name_texture(data, str, "EA ");
-	else if (ft_int_strstr(str, "WE "))
+	else if (ft_int_strstr(str, "WE ") && data->west == NULL)
 		data->west = get_name_texture(data, str, "WE ");
 	return (1);
 }

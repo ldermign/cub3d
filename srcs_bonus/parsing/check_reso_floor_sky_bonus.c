@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 10:03:46 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:40:00 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:13:05 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	check_floor_sky(t_arg *data, char *str)
 	|| check_space_in_split(data, tmp[1]) == -1
 	|| check_space_in_split(data, tmp[2]) == -1
 	|| check_infos_inside_split(data, tmp) == -1)
+	{
+		free_str(tmp);
 		return (-1);
+	}
 	free_str(tmp);
 	return (1);
 }
