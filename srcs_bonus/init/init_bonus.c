@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:05:49 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:39:45 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 02:56:21 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_struct_arg(t_arg *data)
 {
+	data->check_f = 0;
+	data->check_c = 0;
 	data->tmp = 0;
 	data->last = 0;
 	data->len_fd = 0;

@@ -6,7 +6,7 @@
 #    By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/14 01:00:03 by ejahan           ###   ########.fr        #
+#    Updated: 2022/04/14 03:06:58 by ejahan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,9 +73,9 @@ CC		=	clang
 
 MLX		=	libmlx_Linux.a
 
-CFLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address -I ${INCS} -I ./mlx/ #-Ofast #-fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -g3 -I ${INCS} -I ./mlx/ -Ofast #-fsanitize=address
 
-CFLAGS_BONUS	=	-Wall -Wextra -Werror -g3 -fsanitize=address -I ${INCS_BONUS} -I ./mlx/ -Ofast #-fsanitize=address
+CFLAGS_BONUS	=	-Wall -Wextra -Werror -g3 -I ${INCS_BONUS} -I ./mlx/ -Ofast #-fsanitize=address
 
 MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 

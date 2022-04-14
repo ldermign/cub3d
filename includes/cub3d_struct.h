@@ -6,7 +6,7 @@
 /*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 08:19:05 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/13 22:49:45 by ejahan           ###   ########.fr       */
+/*   Updated: 2022/04/14 02:45:51 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ typedef struct s_texture
 typedef struct s_argmts
 {
 	int			f;
+	int			check_f;
 	int			c;
+	int			check_c;
 	int			tmp;
 	int			last;
 	int			len_fd;

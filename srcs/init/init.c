@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejahan <ejahan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:05:49 by ldermign          #+#    #+#             */
-/*   Updated: 2022/04/11 11:01:23 by ldermign         ###   ########.fr       */
+/*   Updated: 2022/04/14 02:46:57 by ejahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_struct_arg(t_arg *data)
 {
+	data->check_f = 0;
+	data->check_c = 0;
 	data->tmp = 0;
 	data->last = 0;
 	data->len_fd = 0;
