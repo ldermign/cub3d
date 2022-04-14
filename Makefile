@@ -6,11 +6,13 @@
 #    By: ldermign <ldermign@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/28 17:09:11 by ldermign          #+#    #+#              #
-#    Updated: 2022/04/14 10:16:55 by ldermign         ###   ########.fr        #
+#    Updated: 2022/04/14 15:18:26 by ldermign         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cub3d
+NAME	=	cub3D
+
+N_BONUS	=	cub3D_bonus
 
 SRCS	=	./srcs/main.c \
 			./srcs/parsing/get_mapcub_infos.c \
@@ -73,9 +75,9 @@ CC		=	clang
 
 MLX		=	libmlx_Linux.a
 
-CFLAGS	=	-Wall -Wextra -Werror -g3 -I ${INCS} -I ./mlx/ -Ofast #-fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -I ${INCS} -I ./mlx/ -Ofast #-g3 -fsanitize=address
 
-CFLAGS_BONUS	=	-Wall -Wextra -Werror -g3 -I ${INCS_BONUS} -I ./mlx/ -Ofast #-fsanitize=address
+CFLAGS_BONUS	=	-Wall -Wextra -Werror -I ${INCS_BONUS} -I ./mlx/ -Ofast #-g3 -fsanitize=address
 
 MLXFLG	=	-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 # 
@@ -108,7 +110,7 @@ re:			fclean all
 bonus:		${OBJS_BONUS} ${INCS_BONUS}
 			${MAKE} -C libft
 			${MAKE} -C mlx
-			${CC} -o ${NAME} ${OBJS_BONUS} ${CFLAGS_BONUS} ${MLXFLG} libft/libft.a mlx/libmlx_Linux.a
+			${CC} -o ${N_BONUS} ${OBJS_BONUS} ${CFLAGS_BONUS} ${MLXFLG} libft/libft.a mlx/libmlx_Linux.a
 			
 
 .PHONY: 	all clean fclean re bonus
